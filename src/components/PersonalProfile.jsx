@@ -12,14 +12,16 @@ export default function PersonalProfile({
 }){
     return(
         <>
-        <Link to={`/Profilepage/${id}`} key={id} style={{ textDecoration: "none"}}>
-        <div className='box'>
-            <p>username: {user}</p>
-            <p>{content}</p>
-            <p>제공 키워드: {gKeyword}</p>
-            <p>add: {add}</p>
-        </div>
-        </Link>
+            
+            <Link to={`/Profilepage/${id}`} key={id} style={{ textDecoration: "none"}}>
+            <div className='personalbox'>
+                <img src='man.png' />
+                <p>{user}</p>
+                <p>{add}</p>
+                <p>{content}</p>
+                
+            </div>
+            </Link>
         </>
     )
 }

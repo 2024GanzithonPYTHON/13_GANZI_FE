@@ -5,6 +5,7 @@ import MyPage from './pages/MyPage';
 import NewComu from './pages/NewComu';
 import Search from './pages/Search';
 import Profiles from './pages/Profiles';
+import Reviews from './pages/Reviews';
 
 
 import Header from './layout/Header';
@@ -20,15 +21,15 @@ import { useState } from 'react';
 
 const PersonalDatas=[{
   id:0,
-  user: "a",
+  user: "닉네임1",
   content: "aelllo",
   wKeyword: "foreign",
   gKeyword: "IT",
-  add: "backend",
+  add: "Backend",
 },
 {
   id:1,
-  user: "b",
+  user: "닉네임2",
   content: "bello",
   wKeyword: "design",
   gKeyword: "IT",
@@ -36,23 +37,23 @@ const PersonalDatas=[{
 },
 {
   id:2,
-  user: "c",
+  user: "닉네임3",
   content: "cello",
   wKeyword: "IT",
   gKeyword: "foreign",
-  add: "",
+  add: "English",
 },
 {
   id:3,
-  user: "d",
+  user: "닉네임4",
   content: "dello",
   wKeyword: "IT",
   gKeyword: "design",
-  add: "",
+  add: "UI/UX",
 },
 {
   id:4,
-  user: "e",
+  user: "닉네임5",
   content: "eello",
   wKeyword: "foreign",
   gKeyword: "IT",
@@ -60,51 +61,51 @@ const PersonalDatas=[{
 },
 {
   id:5,
-  user: "f",
+  user: "닉네임6",
   content: "fello",
   wKeyword: "IT",
   gKeyword: "foreign",
-  add: "",
+  add: "Japan",
 },
 {
   id:6,
-  user: "g",
+  user: "닉네임7",
   content: "gello",
   wKeyword: "IT",
   gKeyword: "foreign",
-  add: "",
+  add: "china",
 },
 {
   id:7,
-  user: "h",
+  user: "닉네임8",
   content: "hello",
   wKeyword: "IT",
   gKeyword: "design",
-  add: "",
+  add: "UX",
 },
 {
   id:8,
-  user: "i",
+  user: "닉네임9",
   content: "iello",
   wKeyword: "IT",
   gKeyword: "design",
-  add: "",
+  add: "UI",
 },
 {
   id:9,
-  user: "j",
+  user: "닉네임10",
   content: "Jello",
   wKeyword: "IT",
   gKeyword: "design",
-  add: "",
+  add: "UX",
 },
 {
   id:10,
-  user: "k",
+  user: "닉네임11",
   content: "Kello",
   wKeyword: "IT",
   gKeyword: "design",
-  add: "",
+  add: "UI",
 },
 ]
 
@@ -133,12 +134,13 @@ function App() {
     <Header/>
       <bb className='content'>
       <Routes>
-        <Route path='/' element={<Main datas={Datas} myWData={myWdata} myGData={myGdata}/>}/>
+        <Route path='/' element={<Main datas={Datas} />}/>
         <Route path='/MyPage' element={<MyPage Datas={Datas} myWData={myWdata} setMyWData={setMyWData} onUpdate={onUpdate}/>}/>
         <Route path='/Comu' element={<Comu datas={Datas}/>}/>
         <Route path='/NewComu' element={<NewComu datas={Datas}/>}/>
         <Route path='/Search' element={<Search datas={Datas} myWData={myWdata} myGData={myGdata}/>}/>
         <Route path='/Profilepage/:ID' element={<Profiles datas={Datas}/>}/>
+        <Route path='/Reviewpage/:ID' element={<Reviews datas={Datas}/>}/>
       </Routes>
       </bb>
       <Footer/>

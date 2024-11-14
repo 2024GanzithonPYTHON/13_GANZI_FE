@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import Introduce from "../components/Introduce"
 
 export default function MyPage({ 
     Datas, 
@@ -6,23 +6,30 @@ export default function MyPage({
     setMyWData, 
     onUpdate
     }) {
-
-
-    useEffect(()=>{
-        onUpdate(Datas[1].id);
-        console.log(myWData)
-        console.log(Datas[1])
-      },[myWData]);
-
-
-   
-    return(
-        <>
-            <div>마이페이지</div>
-            <p>{Datas[1].user}</p>
-            <p>{Datas[1].content}</p>
-            <p>{myWData}</p>
-            <p>{Datas[1].gKeyword}</p>
-        </>
-    )
+        
+        return(
+            <>
+            <Introduce i={Datas[1]}/>
+            <hr />
+            <div>
+             
+                <p>내가 쓴 게시물</p>
+               
+            </div>
+            <hr />
+            <div>
+                <p>재능 소개</p>
+            </div>
+            <hr />
+            <div>
+                <p>한줄 소개</p>
+                <p>{Datas[1].content}</p>
+            </div>
+            <hr />
+            <div>
+                <p>제가 자신있는 부분은요!</p>
+            </div>
+            </>
+            
+        )
 }

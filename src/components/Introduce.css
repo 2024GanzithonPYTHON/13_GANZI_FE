@@ -1,0 +1,39 @@
+.name{
+    display: inline;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.box{
+    display: inline-block;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+.other{
+    font-size: 1cap;
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    font-weight: 500;
+    margin-right: 0;
+}
+.place{
+    margin: 10px;
+    font-size: 1cap;
+    font-weight: 500;
+}
+.ab{
+    background-color: #D9D9D9;
+    height: 80px;
+    width: 85%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    line-height: 40px;
+    font-size: 1cap;
+    font-weight: bold;
+}
+
+

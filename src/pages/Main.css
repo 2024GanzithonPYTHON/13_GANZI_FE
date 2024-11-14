@@ -1,0 +1,13 @@
+.input{
+    position: fixed;
+    top: 60px;
+    
+    width: 100%;
+    height: 50px;
+    background-color: white;
+}
+.profilesarray{
+    margin-top: 50px;
+}
+
+
