@@ -2,88 +2,137 @@ import PersonalProfile from "../components/PersonalProfile"
 import './Main.css';
 import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
+import Modal from 'react-modal';
+import KeywordSort from "../components/KeywordSort";
+import ProfileSort from "../components/ProfileSort";
 
-export default function Main({datas }){
+// 메인페이지
+export default function Main({datas}){
     const [ selectData, setSelectData ] = useState("");
+    const [ selectSort, setSelectSort ] = useState("latest");
     const [ searchData, setSearch ]=useState("");
+    const [ keyword, setKeyword ] = useState("전체")
+    const [ sorting, setSorting ] = useState("최신순")
+    
+   
 
-
-
+    
+   
+   
     const onChangeSearch=(e)=>{
         setSearch(e.target.value);
     };
 
-    const onSelectChange=(e)=>{
-        setSelectData( e.target.value);
-    }; 
     
+    
+
     useEffect(() => {
         console.log(selectData)
     },[selectData])
+
+    useEffect(() => {
+        console.log(selectSort)
+    },[selectSort])
     
 
-    const filterData=()=>{
-        if(selectData===""){
-            if(searchData===""){
-                return datas;
-            }
-            return datas.filter((data)=>
-                data.add.includes(searchData)
-            ); 
-        }else{
-            if(searchData===""){
-                return datas.filter((data)=>
-                    data.gKeyword.includes(selectData)
-                );
-            }
-            return datas.filter((data)=>
-                data.gKeyword.includes(selectData)&&data.add.includes(searchData)
-            ); 
+    const filterData = () => {
+        let filteredData;
+    
+        // 기존 필터링 조건 (gKeyword에 따라 필터링)
+        if (selectData === "") {
+            filteredData = datas;
+        } else {
+            filteredData = datas.filter((data) => data.gKeyword.includes(selectData));
         }
+    
+        // 추가된 정렬 조건 (selectSort 기준으로 정렬)
+        if (selectSort === "stars") {
+            filteredData.sort((a, b) => b.stars - a.stars); // 별점 내림차순
+        } else if (selectSort === "manyReview") {
+            filteredData.sort((a, b) => b.reviews - a.reviews); // 리뷰 개수 내림차순
+        } else if (selectSort === "highScore") {
+            filteredData.sort((a, b) => a.time - b.time); // 시간 오름차순
+        }
+    
+        return filteredData;
     };
+
+
+
+    const [isOpen1, setIsOpen1] = useState(false);
+
+    const openModal1 = () => setIsOpen1(true);
+    const closeModal1 = () => setIsOpen1(false);
+
+    const [isOpen2, setIsOpen2] = useState(false);
+
+    const openModal2 = () => setIsOpen2(true);
+    const closeModal2 = () => setIsOpen2(false);
 
     
     return(
         <div className="main">
-                
-                <div className="input">
-                    <Link to='/Search'>
-                    <input
-                        value={searchData} 
+            <div className="input">
+                <div className="inputdiv">
+                <Link to='/Search'>
+                    <svg className="icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <g>
+                            <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                        </g>
+                    </svg>
+                    <input value={searchData} 
                         onChange={onChangeSearch}
-                        placeholder="검색어를 입력하세요"/>
-                    </Link>
-                    <hr />
+
+                        className="inputsearch"/>
+                </Link>
                 </div>
+                <hr style={{marginTop:27}}/>
+            </div>
 
 
-                <div className="profilesarray">
+            <div className="profilesarray">
+            
+                <div className="placecenter">
                     <h2>실시간 추천</h2>
                     <p>{datas[1].user}님의 관심사를 잘 알고 있는 분이에요.</p>
-
-                    <hr />
-                    <select  onChange={onSelectChange}>
-                        <option value={""}> 전체 </option>
-                        <option value={"foreign"}>외국어</option>
-                        <option value={"IT"}>IT</option>
-                        <option value={"economy"}>경영/경제</option>
-                        <option value={"dance"}>댄스</option>
-                        <option value={"design"}>디자인</option>
-                        <option value={"fashion"}>패션</option>
-                        <option value={"game"}>게임</option>
-                        <option value={"music"}>음악</option>
-                        <option value={"others"}>기타</option>
-                    </select>
-                    <select >
-                        <option>최신순</option>
-                        <option>리뷰 개수순</option>
-                        <option>평점순</option>
-                    </select>
-                    <hr />
+                </div>
+                <hr />
+                <div className="placecenter flex">
+                    {/* select대신 키워드.... */}
+                    <div className="selectbox" onClick={openModal2}>{sorting}</div>
+                        <Modal
+                            isOpen={isOpen2}
+                            onRequestClose={closeModal2}
+                            contentLabel="Example Modal"
+                            overlayClassName="overlay"
+                            className="modal">
+                            <div id="modal-scrollable" className="modal-scrollable">
+                            <ProfileSort closeModal={closeModal2} setSelectSort={setSelectSort} setSorting={setSorting}/>
+                            </div>
+                        </Modal>
+                        {/* select대신 최신순, 리뷰 많은 순.... */}
+                    <div className="selectbox"onClick={openModal1}>{keyword}</div>
+                    <Modal
+                        isOpen={isOpen1}
+                        onRequestClose={closeModal1}
+                        contentLabel="Example Modal"
+                        overlayClassName="overlay"
+                        className="modal">
+                        <div id="modal-scrollable" className="modal-scrollable">
+                        <KeywordSort closeModal={closeModal1} setSelectData={setSelectData} setKeyword={setKeyword}/>
+                        </div>
+                    </Modal>
+            
+                    
+                </div>
+                <hr style={{borderColor: "white"}}/>
+                {/* 개인프로필 출력 */}
+                <div className="media">
                     {filterData().map((datas) => (
                         <PersonalProfile className="item" key={datas.id} {...datas}/>
                     ))}
                 </div>
+            </div>
             
         </div>
         

@@ -19,3 +19,7 @@
     display: inline-block;
     font-weight: bold;
 }
+.clickdiv{
+    width: 88%;
+    margin: auto;
+}

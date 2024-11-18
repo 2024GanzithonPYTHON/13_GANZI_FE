@@ -8,39 +8,28 @@
     height: 90px;
     background-color: white;
 }
-.profilesarray{
-    
-    margin-top: 80px;
 
-}
-.ss{
-
-box-sizing: border-box;
-
-background: #D9D9D9;
-box-shadow: 0px 2.25958px 2.25958px rgba(0, 0, 0, 0.25);
-border-radius: 5.64895px;
-
-}
 .selectbox{
 
 
 
-width: 70px;
-height: auto;
-padding: 7px;
-
-background: #F1F1F1;
-border-radius: 11.3605px;
-font-size:1cap;
-
-text-align: center;
-margin: 5px;
-
-
-}
+    width: 70px;
+    height: auto;
+    padding: 7px;
+    
+    background: #F1F1F1;
+    border-radius: 11.3605px;
+    font-size:1cap;
+    
+    text-align: center;
+    margin: 5px;
+    
+    
+    }
 .placecenter{
+
     margin: auto;
+    
     width: 85%;
 }
 .overlay {
@@ -65,7 +54,6 @@ margin: 5px;
     margin-bottom: 0;
     padding-bottom: 40px;
     border-radius: 20px;
-    scrollbar-width: none;
 
 }
   
@@ -109,85 +97,24 @@ margin: 5px;
     color: #0d0c22;
     box-shadow: 0px 2.25958px 2.25958px rgba(0, 0, 0, 0.25);
 }
+.button{
+    position: fixed;
+    bottom: 50px;
+    right: 10PX;
 
-@media (min-width: 310px) {
-    .media {
-        width: 310px;
-    }
-  }
-
-@media (min-width: 539px) {
-    .media {
-        width: 460px;
-    }
-  }
-
-  @media (min-width: 800px) {
-    .media {
-        width: 610px;
- 
-    }
-  }
-
-  @media (min-width: 1000px) {
-    .media {
-        width: 760px;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .media {
-        width: 910px;
-    }
-  }
-
-  @media (min-width: 1350px) {
-    .media {
-        width: 1070px;
-    }
-  }
-
-  @media (min-width: 1500px) {
-    .media {
-        width: 1220px;
-    }
-  }
-  @media (min-width: 1650px) {
-    .media {
-        width: 1370px;
-    }
-  }
-  @media (min-width: 1800px) {
-    .media {
-        width: 1520px;
-    }
-  }
-  @media (min-width: 1950px) {
-    .media {
-        width: 1670px;
-    }
-  }
-  @media (min-width: 2100px) {
-    .media {
-        width: 1820px;
-    }
-  }
- .media{
-    margin: auto;
- 
- }
+    width: 50px;
+    height: 50px;
+}
+.comuarray{
+    margin-top: 120px;
+}
 .flex{
     display: flex;
     flex-direction: row-reverse;
 }
-.nonesearch{
-    margin: auto;
-    width: 150px;
-
-    margin-top: 35vh; 
-    margin-bottom: 30vh;
-}
  
+
+
   
 
 

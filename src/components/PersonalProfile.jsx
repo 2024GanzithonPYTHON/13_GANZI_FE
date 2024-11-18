@@ -1,7 +1,7 @@
 import './PersonalProfile.css';
 
 import { Link } from "react-router-dom";
-
+// 메인 페이지 프로필 각각
 export default function PersonalProfile({
     id,
     user,
@@ -9,17 +9,30 @@ export default function PersonalProfile({
     wKeyword,
     gKeyword,
     add,
+    gender,
+    preferGender,
+    time,
+    reviews,
+    stars,
+    img,
 }){
+  
+    const profileClass = id % 2===0 ? 'leftbox' : 'rightbox';
+
     return(
         <>
+
             
             <Link to={`/Profilepage/${id}`} key={id} style={{ textDecoration: "none"}}>
-            <div className='personalbox'>
-                <img src='man.png' />
-                <p>{user}</p>
-                <p>{add}</p>
-                <p>{content}</p>
+
+            <div className={`${profileClass} personalbox`}>
+                <img src={img} alt="사진"/>
+
+                <p className='boldname textcenter'>{user} {add}</p>
+                <p className='textcenter'>{content}</p>
+    
                 
+
             </div>
             </Link>
         </>
