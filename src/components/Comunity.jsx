@@ -13,7 +13,7 @@ export default function Comunity({
     return(
         <>
         <Link to={`/ComuPage/${id}`} key={id}>
-        <div className="Comun">
+        <div className="Comun" style={{textDecoration: "none",}}>
             <p className='title'>{title}</p>
             <p>{content}</p>
             <p className='inlineblock'>{userName}</p>

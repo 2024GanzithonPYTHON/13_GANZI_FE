@@ -36,7 +36,7 @@ const Profiles=({datas})=>{
         <DetailIntroduce i={i[0]}/>
       
         <Link to={`/ChatPage/${i[0].id}`} key={i[0].id}>
-        <button className="button">채팅</button>
+        <button className="button"><img src='./chatbutton.png' alt="수정" /></button>
         </Link>
         </>
         

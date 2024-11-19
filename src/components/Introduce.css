@@ -38,7 +38,6 @@
 
 }
 .ab{
-    
     height: 80px;
     width: 85%;
     margin: auto;
@@ -51,8 +50,9 @@
     padding-top: 1px;
 
 }
-.ab>p{
-    margin: 15px;
+.ppsize>div{
+    display: flex;
+    flex-direction: row;
 }
 .inline{
     display: inline-block;
@@ -60,6 +60,7 @@
     
 }
 .pp{
+    margin: 11px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 600;
@@ -98,7 +99,10 @@ hr{
     border-top: 1px solid #000000;
     
 }
-
+.ppsize{
+    width: 80%;
+    margin: auto;
+}
 
 
 

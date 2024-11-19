@@ -1,5 +1,5 @@
 import React from "react";
-import '../pages/Main';
+import '../pages/MainPage';
 import '../pages/Comu';
 import '../pages/Chats'
 import '../pages/MyPage';
@@ -9,7 +9,7 @@ import './Footer.css';
 const Footer = () =>{
     return(
         <footer className="footer">
-            <Link to="/">
+            <Link to="/MainPage">
                 <button>Ma</button>
             </Link>
             <Link to="/Comu">

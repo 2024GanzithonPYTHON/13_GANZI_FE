@@ -1,6 +1,8 @@
 import Introduce from "../components/Introduce"
 import DetailIntroduce from "../components/DetailIntroduce"
 import TalentIntroduce from "../components/TalentIntroduce"
+
+
 import './MyPage.css';
 import { Link } from "react-router-dom";
 // 마이페이지
@@ -30,7 +32,7 @@ export default function MyPage({ myData }) {
                 <hr />
                  {/* 포폴 */}
                 <DetailIntroduce i={myData}/>
-                <button className="button">수정</button>
+                <button className="button"><img src='./pencilbutton.png' alt="수정" /></button>
             </>
             
         )

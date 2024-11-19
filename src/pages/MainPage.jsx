@@ -8,7 +8,7 @@ import KeywordSort from "../components/KeywordSort";
 import ProfileSort from "../components/ProfileSort";
 
 // 메인페이지
-export default function Main({datas}){
+export default function MainPage({datas}){
     const [ selectData, setSelectData ] = useState("");
     const [ selectSort, setSelectSort ] = useState("latest");
     const [ searchData, setSearch ]=useState("");

@@ -14,14 +14,15 @@
 }
 .highlightbox{
     box-sizing: border-box;
-
-    padding: 9.46708px;
     gap: 9.47px;
-    margin: 10px;
-
-    width: 59px;
+    display: flex;
+    align-items: center;
+   justify-content: center;
+    width: 70px;
     height: 24px;
- 
+    margin-left: 5px;
+    margin-right: 5px;
+
     font-weight: 600;
     background: rgba(122, 178, 211, 0.3);
     box-shadow: 0px 0.946708px 10.3191px rgba(0, 0, 0, 0.25);
@@ -37,4 +38,11 @@
 }
 .TalentIntroduce>div{
     margin-left: 20px;
+}
+.flexintro{
+    display: flex;
+    align-items: center;
+}
+.addmargin{
+    margin-left: 33px;
 }

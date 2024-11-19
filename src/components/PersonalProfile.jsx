@@ -17,7 +17,7 @@ export default function PersonalProfile({
     img,
 }){
   
-    const profileClass = id % 2===0 ? 'leftbox' : 'rightbox';
+  
 
     return(
         <>
@@ -25,7 +25,7 @@ export default function PersonalProfile({
             
             <Link to={`/Profilepage/${id}`} key={id} style={{ textDecoration: "none"}}>
 
-            <div className={`${profileClass} personalbox`}>
+            <div className='personalbox'>
                 <img src={img} alt="사진"/>
 
                 <p className='boldname textcenter'>{user} {add}</p>

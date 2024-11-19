@@ -85,7 +85,7 @@ export default function Comu({datas, comuInfo}){
                     <Comunity key={comuInfo.id} {...comuInfo}/>
                 ))}
             </div>
-            <Link to="/NewComu"><button className='button'>새 글 작성</button></Link>
+            <Link to="/NewComu"><button className='button'><img src='./pencilbutton.png' alt="수정" /></button></Link>
             
         </>
     )
