@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import MainPage from './pages/MainPage';
+import Main from './pages/Main';
 import Chats from './pages/Chats';
 import Comu from './pages/Comu';
 import MyPage from './pages/MyPage';
@@ -389,7 +389,7 @@ const [ chatInfo, setChatInfo ] = useState(mockChatData);
     <Header/>
       <bb className='content'>
       <Routes>
-        <Route path='/MainPage' element={<MainPage datas={Datas} />}/>
+        <Route path='/Main' element={<Main datas={Datas} />}/>
         <Route path='/Chats' element={<Chats chatInfo={chatInfo}/>}/>
         <Route path='/MyPage' element={<MyPage myData={myData}/>}/>
         <Route path='/MyReview' element={<MyReview myData={myData} reviewInfo={reviewInfo}/>}/>
