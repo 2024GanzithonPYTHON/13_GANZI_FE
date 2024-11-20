@@ -1,6 +1,7 @@
 .inlineblock{
     display: inline-block;
     margin-right: 10px;
+    color: #888888;
 }
 .Comun{
     width: 85%;
@@ -8,10 +9,13 @@
 }
 .Comun>p{
     font-size: 13px;
-    color: black;
     text-decoration: none;
 }
 .title{
     text-decoration: none;
     font-weight: bold;
+}
+.pcolor{
+    
+    margin: 0;
 }

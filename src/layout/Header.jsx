@@ -4,7 +4,10 @@ import './Header.css';
 const Header = () =>{
     return(
         <header className="header">
-            <h1>로고</h1>
+            <div>
+                <h1>로고</h1>
+            </div>
+            <hr/>
         </header>
     );
 };

@@ -10,17 +10,15 @@
 }
 
 .selectbox{
+    display: flex;
 
-
-
-    width: 70px;
+    width: 85px;
     height: auto;
-    padding: 7px;
     
     background: #F1F1F1;
     border-radius: 11.3605px;
     font-size:1cap;
-    
+    justify-items: center;
     text-align: center;
     margin: 5px;
     
@@ -52,7 +50,7 @@
     max-height: 30%;
     overflow-y: auto;
     margin-bottom: 0;
-    padding-bottom: 40px;
+    padding-bottom: 70px;
     border-radius: 20px;
 
 }
@@ -112,9 +110,3 @@
     display: flex;
     flex-direction: row-reverse;
 }
- 
-
-
-  
-
-

@@ -21,6 +21,7 @@ export default function Comment({
                             <p style={{marginTop:0}}>{userKeyword}</p>
                             <p style={{marginTop:0, marginRight:5, marginLeft:5}}> | </p>
                             <p style={{marginTop:0}}>{userAdd}</p>
+                            <p style={{marginTop:0}} className="rightright inlineblock">{time}</p>
                         </div>
                     </div >
                     </div >

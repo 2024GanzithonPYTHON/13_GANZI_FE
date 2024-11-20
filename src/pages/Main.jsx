@@ -2,10 +2,11 @@ import PersonalProfile from "../components/PersonalProfile"
 import RecomendData from "../components/RecomendData";
 import './Main.css';
 import { useState,useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Modal from 'react-modal';
 import KeywordSort from "../components/KeywordSort";
 import ProfileSort from "../components/ProfileSort";
+import NavBar from "../components/NavBar";
 
 // 메인페이지
 export default function Main({datas}){
@@ -15,6 +16,10 @@ export default function Main({datas}){
     const [ keyword, setKeyword ] = useState("전체")
     const [ sorting, setSorting ] = useState("최신순")
     
+    const [limit, setLimit] = useState(6);
+    const [page, setPage] = useState(1);
+    const offset = (page - 1) * limit;
+        
    
 
     const recommendation = [{
@@ -63,6 +68,18 @@ export default function Main({datas}){
 
     const [ recoData, setRecoData ] = useState(recommendation)
     
+
+    const { ID } = useParams();
+
+
+    const filterPage = () => (
+        datas.filter((data)=>
+            data.pageId==ID
+        )
+    )
+
+  
+    
    
    
     const onChangeSearch=(e)=>{
@@ -104,6 +121,7 @@ export default function Main({datas}){
     };
 
 
+    
 
     const [isOpen1, setIsOpen1] = useState(false);
 
@@ -141,7 +159,7 @@ export default function Main({datas}){
                 <div className="placecenter">
                     <h2>실시간 추천</h2>
                     <p>{datas[1].user}님의 관심사를 잘 알고 있는 분이에요.</p>
-                    <div  > 
+                    <div className="recocenter" > 
                     {recoData.map((recodata)=>(
                         <RecomendData  key={recodata.id} {...recodata}/>
                     ))
@@ -151,7 +169,7 @@ export default function Main({datas}){
                 <hr />
                 <div className="placecenter flex">
                     {/* select대신 키워드.... */}
-                    <div className="selectbox" onClick={openModal2}>{sorting}</div>
+                    <div className="selectbox" onClick={openModal2}><p>{sorting}</p><img style={{width:10, height:10, marginTop:14, marginLeft:10}}src="./underarrow.png" alt="아래 화살표"/></div>
                         <Modal
                             isOpen={isOpen2}
                             onRequestClose={closeModal2}
@@ -163,7 +181,7 @@ export default function Main({datas}){
                             </div>
                         </Modal>
                         {/* select대신 최신순, 리뷰 많은 순.... */}
-                    <div className="selectbox"onClick={openModal1}>{keyword}</div>
+                    <div className="selectbox"onClick={openModal1}><p>{keyword}</p><img style={{width:10, height:10, marginTop:14, marginLeft:10}}src="./underarrow.png" alt="아래 화살표"/></div>
                     <Modal
                         isOpen={isOpen1}
                         onRequestClose={closeModal1}
@@ -180,10 +198,11 @@ export default function Main({datas}){
                 <hr style={{borderColor: "white"}}/>
                 {/* 개인프로필 출력 */}
                 <div className="media">
-                    {filterData().map((datas) => (
+                    {datas.slice(offset, offset + limit).map((datas) => (
                         <PersonalProfile className="item" key={datas.id} {...datas}/>
                     ))}
                 </div>
+                <NavBar/>
             </div>
             
         </div>

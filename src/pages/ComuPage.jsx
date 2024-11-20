@@ -38,9 +38,9 @@ export default function ComuPage({comuInfo, commentInfo}){
                     <div className="jljl">
                         <p className="boldsize" style={{marginBottom:0}}>{i[0].userName}</p>
                         <div className="glgl">
-                            <p style={{marginTop:0}}>{i[0].userKeyword}</p>
-                            <p style={{marginTop:0, marginRight:5, marginLeft:5}}> | </p>
-                            <p style={{marginTop:0}}>{i[0].userAdd}</p>
+                            <p className= "boldsize" style={{marginTop:0}}>{i[0].userKeyword}</p>
+                            <p className= "boldsize" style={{marginTop:0, marginRight:5, marginLeft:5}}> | </p>
+                            <p className= "boldsize" style={{marginTop:0}}>{i[0].userAdd}</p>
                         </div>
                     </div >
                 </div >

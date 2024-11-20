@@ -4,6 +4,7 @@ import KeywordSort from "../components/KeywordSort";
 import ProfileSort from "../components/ProfileSort";
 import Modal from 'react-modal';
 import './Main.css';
+import NavBar from "../components/NavBar";
 
 // 메인 검색 페이지
 export default function Search({datas}){
@@ -12,6 +13,10 @@ export default function Search({datas}){
     const [ selectSort, setSelectSort ] = useState("latest");
     const [ searchData, setSearch ]=useState("");
     const [ sorting, setSorting ] = useState("최신순")
+
+    const [limit, setLimit] = useState(6);
+    const [page, setPage] = useState(1);
+    const offset = (page - 1) * limit;
     
 
 //selet때문에 쓰는거  
@@ -51,7 +56,7 @@ export default function Search({datas}){
     
     return(
         <div>
-            <div className="input" style={{height:125}}>
+            <div className="input" style={{height:138}}>
                 {/* 검색창 */}
                 <div className="inputdiv">
                     {/* 검색 아이콘 */}
@@ -68,7 +73,7 @@ export default function Search({datas}){
                 <div className="placecenter flex" >
 
                 {/* select대신 최신순, 리뷰 많은 순.... */}
-                    <div className="selectbox" onClick={openModal2}>{sorting}</div>
+                <div className="selectbox" onClick={openModal2}><p>{sorting}</p><img style={{width:10, height:10, marginTop:14, marginLeft:10}}src="./underarrow.png" alt="아래 화살표"/></div>
                     <Modal
                         isOpen={isOpen2}
                         onRequestClose={closeModal2}
@@ -84,19 +89,17 @@ export default function Search({datas}){
             </div>
             
                 <hr style={{borderColor: "white", margin: 50}}/>
-                <div className="media">
+                <div className="media" style={{marginTop:70}}>
                     {/* 개별 프로필 출력 */}
-                    {filterData().length === 0 ? (
-                        <div className="nonesearch">'{searchData}'와/과 관련된 검색 결과가 없어요.</div> 
-                    ) : (
+                    
                         <div>
-                        {filterData().map((datas) => (
-                            <PersonalProfile key={datas.id} {...datas}/>
+                        {datas.slice(offset, offset + limit).map((datas) => (
+                            <PersonalProfile className="item" key={datas.id} {...datas}/>
                         ))}
                         
                         </div>
-                    )}
                 </div>
+                <NavBar/>
             
         </div>
         

@@ -62,14 +62,14 @@ export default function Comu({datas, comuInfo}){
                 <hr style={{marginTop:10, borderColor:"white"}}/>
                 {/* select 대신 정렬 */}
                 <div className="placecenter flex" >
-                    <div className="selectbox"onClick={openModal1}>{keyword}</div>
+                <div className="selectbox" onClick={openModal2}><p>{keyword}</p><img style={{width:10, height:10, marginTop:14, marginLeft:10}}src="./underarrow.png" alt="아래 화살표"/></div>
                     <Modal isOpen={isOpen1} onRequestClose={closeModal1} contentLabel="Example Modal" overlayClassName="overlay" className="modal">
                         <div id="modal-scrollable" className="modal-scrollable">
                         <KeywordSort closeModal={closeModal1} setSelectData={setSelectData} setKeyword={setKeyword}/>
                         </div>
                     </Modal>
             
-                    <div className="selectbox" onClick={openModal2}>{sorting}</div>
+                    <div className="selectbox" onClick={openModal2}><p>{sorting}</p><img style={{width:10, height:10, marginTop:14, marginLeft:10}}src="./underarrow.png" alt="아래 화살표"/></div>
                     <Modal isOpen={isOpen2} onRequestClose={closeModal2} contentLabel="Example Modal" overlayClassName="overlay" className="modal">
                         <div id="modal-scrollable" className="modal-scrollable">
                         <ProfileSort closeModal={closeModal2} setSelectSort={setSelectSort} setSorting={setSorting}/>

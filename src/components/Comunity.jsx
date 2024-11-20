@@ -16,11 +16,14 @@ export default function Comunity({
         <div className="Comun" style={{textDecoration: "none",}}>
             <p className='title'>{title}</p>
             <p>{content}</p>
-            <p className='inlineblock'>{userName}</p>
-            <p className='inlineblock'>{userKeyword}</p>
-            <p className='inlineblock'>{time}</p>
-            <p className='inlineblock'>{view}</p>
-
+            <div className="Comun pcolor">
+                <p className='inlineblock'>{userName}</p>
+                <p className='inlineblock'>{userKeyword}</p>
+                <p className='inlineblock'>|</p>
+                <p className='inlineblock'>add</p>
+                <p className='inlineblock'>{time}</p>
+                <p className='inlineblock'>{view}</p>
+            </div>
         </div>
         </Link>
         <hr/>

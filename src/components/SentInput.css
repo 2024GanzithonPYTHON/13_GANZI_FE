@@ -2,7 +2,7 @@
     position: fixed;
     width: 100%;
     height: 35px;
-    bottom: 60px;
+    bottom: 80px;
 
 }
 .inputboxbox{
@@ -18,7 +18,7 @@
     border: none;
     background-color: white;
     margin-left: 1%;
-    bottom: 69px;
+    bottom: 82px;
     align-self: flex-end;
     margin-right: auto;
 }
@@ -35,6 +35,3 @@
     width: 25px;
     height: 25px;
 }
-
-
-
