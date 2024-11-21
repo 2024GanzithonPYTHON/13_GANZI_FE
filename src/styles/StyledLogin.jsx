@@ -74,12 +74,20 @@ export const PasswdInput = styled.input`
   padding-left: 10px;
 `;
 
-export const Check = styled.div`
-  #checkcircle {
-    margin-top: 20px;
-    margin-left: 60px;
-  }
+export const Circle = styled.div`
+  width: 15.19px;
+  height: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+  margin-left: 66px; /* 위치 조정 */
+  margin-top: 29px;
+`;
 
+export const Check = styled.div`
+  width: 75px;
+  height: 15px;
+  margin-left: 95px;
+  margin-top: -16px;
   #text {
     color: #000;
     font-family: Pretendard;
@@ -87,7 +95,23 @@ export const Check = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-left: 85px;
-    margin-top: -21px;
   }
+`;
+
+export const LoginButton = styled.div`
+  cursor: pointer;
+  margin-left: 56px;
+  margin-top: 30px;
+`;
+
+export const Create = styled.div`
+  cursor: pointer;
+  color: #000;
+  font-family: Pretendard;
+  font-size: 13.25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: 169px;
+  margin-top: 20px;
 `;

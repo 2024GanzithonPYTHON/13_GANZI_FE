@@ -1,11 +1,12 @@
 import { styled } from "styled-components";
 
+/* 여기부터 헤더까지 고정 */
 export const Container = styled.div`
   width: 393px;
   height: 852px;
   justify-content: center;
   align-items: center;
-  background-color: #f1f1f1;
+  background-color: #fff;
   margin: 0 auto;
   position: relative;
 `;
@@ -25,6 +26,7 @@ export const Header = styled.div`
     margin-left: 200px;
   }
 `;
+/* 헤더 끝 */
 
 export const Logo = styled.div`
   #logo {
@@ -56,5 +58,12 @@ export const Comment = styled.div`
     font-weight: 700;
     line-height: normal;
     margin-top: 6px;
+  }
+`;
+
+export const Tt = styled.div`
+  #Tt {
+    margin-left: 175px;
+    margin-top: 240px;
   }
 `;

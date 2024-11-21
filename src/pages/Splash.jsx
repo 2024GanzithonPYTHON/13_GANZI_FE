@@ -40,6 +40,9 @@ const Splash = () => {
         <div id="text">당신의 특별한 재능을 나누고,</div>
         <div id="text2">새로움으로 채워보세요!</div>
       </S.Comment>
+      <S.Tt>
+        <img id="Tt" src={`${process.env.PUBLIC_URL}/images/Tt.svg`} alt="Tt" />
+      </S.Tt>
     </S.Container>
   );
 };
