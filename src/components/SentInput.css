@@ -1,0 +1,38 @@
+.inputbox{
+    position: fixed;
+    width: 375px;
+    height: 35px;
+    bottom: 20px;
+
+}
+.inputboxbox{
+    width: 90%;
+    margin: auto;
+
+}
+.sentbutton{
+    position:fixed;
+    display: inline;
+    width: 25px;
+    height: 25px;
+    border: none;
+    background-color: white;
+    margin-left: 5px;
+    margin-bottom: 4px;
+    bottom: 22px;
+    align-self: flex-end;
+    margin-right: auto;
+}
+.inputinput{
+    display: inline;
+    width: 90%;
+    height: 30px;
+    margin: 0;
+    border: none;
+    background-color: #F1F1F1;
+    border-radius: 10px;
+}
+.sentbutton>img{
+    width: 15px;
+    height: 15px;
+}
