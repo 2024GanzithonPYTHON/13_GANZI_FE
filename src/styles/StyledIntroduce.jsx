@@ -10,29 +10,12 @@ export const Container = styled.div`
   margin: 0 auto;
   position: relative;
 `;
-export const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 393px;
-  height: 30px;
-  align-items: center;
-  padding: 10px;
-  justify-content: center;
-
-  #time {
-    margin-left: -10px;
-  }
-  #group {
-    margin-left: 200px;
-  }
-`;
-/* 헤더 끝 */
 
 export const Text = styled.div`
   width: 205px;
   height: 44px;
   margin-left: 50px;
-  margin-top: 24px;
+  margin-top: 54px;
   #text {
     color: #000;
     font-family: Pretendard;

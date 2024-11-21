@@ -34,21 +34,10 @@ const Introduce = () => {
     }, 300); // 페이지 이동 지연 시간
   };
 
+  //프론트
   return (
     /* 아이폰 헤더 */
     <I.Container>
-      <I.Header>
-        <img
-          id="time"
-          src={`${process.env.PUBLIC_URL}/images/Time.svg`}
-          alt="time"
-        />
-        <img
-          id="group"
-          src={`${process.env.PUBLIC_URL}/images/HeaderGroup.svg`}
-          alt="group"
-        />
-      </I.Header>
       <I.Text>
         <div id="text">나를 소개해요</div>
       </I.Text>

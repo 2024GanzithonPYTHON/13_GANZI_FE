@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Splash from "./pages/Splash";
 import Login from "./pages/Login";
@@ -22,29 +22,8 @@ import Alarm from "./pages/Alarm";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import HomeFooter from "./layout/HomeFooter";
-import "./App.css";
-import { useState, useRef } from "react";
 
 function App() {
-  const [Datas, setDatas] = useState(PersonalDatas);
-  const [myData, setMyData] = useState(PersonalDatas[1]);
-  const [commentInfo, setCommentInfo] = useState(mockCommentData);
-  const [chatInfo, setChatInfo] = useState(mockChatData);
-  const [reviewInfo, setReviewInfo] = useState(mockReviewData);
-  const idRef = useRef(4);
-
-  const reviewCreate = (reviewText, ID, selectedRating) => {
-    const newReviewInfo = {
-      id: idRef.current++,
-      reviewId: ID,
-      userName: Datas[1].user,
-      keyword: Datas[1].gKeyword,
-      time: new Date().getTime(),
-      review: reviewText,
-      starts: selectedRating,
-    };
-  };
-
   return (
     <BrowserRouter>
       <Routes>
@@ -53,45 +32,20 @@ function App() {
         <Route path="/CreateAccount" element={<CreateAccount />} />
         <Route path="/Welcome" element={<Welcome />} />
         <Route path="/Introduce" element={<Introduce />} />
-        <Route path="/Main" element={<Main datas={Datas} />} />
-        <Route path="/Chats" element={<Chats chatInfo={chatInfo} />} />
-        <Route path="/MyPage" element={<MyPage myData={myData} />} />
-        <Route
-          path="/MyReview"
-          element={<MyReview myData={myData} reviewInfo={reviewInfo} />}
-        />
-        <Route
-          path="/Comu"
-          element={<Comu datas={Datas} comuInfo={comuInfo} />}
-        />
-        <Route
-          path="/NewComu"
-          element={<NewComu datas={Datas} myData={myData} />}
-        />
-        <Route path="/Search" element={<Search datas={Datas} />} />
-        <Route path="/Profilepage/:ID" element={<Profiles datas={Datas} />} />
-        <Route
-          path="/Reviewpage/:ID"
-          element={<Reviews datas={Datas} reviewInfo={reviewInfo} />}
-        />
-        <Route
-          path="/ReviewWrite/:ID"
-          element={<ReviewWrite datas={Datas} reviewCreate={reviewCreate} />}
-        />
-        <Route
-          path="/ChatPage/:ID"
-          element={
-            <ChatPage datas={Datas} myData={myData} chatInfo={chatInfo} />
-          }
-        />
-        <Route
-          path="/ComuPage/:ID"
-          element={<ComuPage comuInfo={comuInfo} commentInfo={commentInfo} />}
-        />
-        <Route
-          path="/MyComu"
-          element={<MyComu myData={myData} comuInfo={comuInfo} />}
-        />
+        <Route path="/Main" element={<Main />} />
+        <Route path="/Chats" element={<Chats />} />
+        <Route path="/MyPage" element={<MyPage />} />
+        <Route path="/MyReview" element={<MyReview />} />
+        <Route path="/Comu" element={<Comu />} />
+
+        <Route path="/NewComu" element={<NewComu />} />
+        <Route path="/Search" element={<Search />} />
+        <Route path="/Profilepage/:ID" element={<Profiles />} />
+        <Route path="/Reviewpage/:ID" element={<Reviews />} />
+        <Route path="/ReviewWrite/:ID" element={<ReviewWrite />} />
+        <Route path="/ChatPage/:ID" element={<ChatPage />} />
+        <Route path="/ComuPage/:ID" element={<ComuPage />} />
+        <Route path="/MyComu" element={<MyComu />} />
         <Route path="/Alarm" element={<Alarm />} />
       </Routes>
     </BrowserRouter>

@@ -10,28 +10,11 @@ export const Container = styled.div`
   margin: 0 auto;
   position: relative;
 `;
-export const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 393px;
-  height: 30px;
-  align-items: center;
-  padding: 10px;
-  justify-content: center;
-
-  #time {
-    margin-left: -10px;
-  }
-  #group {
-    margin-left: 200px;
-  }
-`;
-/* 헤더 끝 */
 
 export const Tt = styled.div`
   #Tt {
     margin-left: 170px;
-    margin-top: 50px;
+    margin-top: 80px;
   }
 `;
 
@@ -305,8 +288,15 @@ export const NotAgree = styled.div`
   }
 `;
 
+export const ErrorMessage = styled.div`
+  color: red;
+  font-size: 13px;
+  margin-top: 10px;
+  text-align: center;
+`;
+
 export const RegisterButton = styled.div`
   cursor: pointer;
   margin-left: 55px;
-  margin-top: 35px;
+  margin-top: 30px;
 `;

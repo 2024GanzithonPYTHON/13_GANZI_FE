@@ -23,29 +23,12 @@ export const Container = styled.div`
   margin: 0 auto;
   position: relative;
 `;
-export const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 393px;
-  height: 30px;
-  align-items: center;
-  padding: 10px;
-  justify-content: center;
-
-  #time {
-    margin-left: -10px;
-  }
-  #group {
-    margin-left: 200px;
-  }
-`;
-/* 헤더 끝 */
 
 export const Text = styled.div`
   width: 280px;
   height: 44px;
   margin-left: 57px;
-  margin-top: 225px;
+  margin-top: 255px;
 
   #text {
     color: #7ab2d3;

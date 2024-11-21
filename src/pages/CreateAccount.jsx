@@ -24,10 +24,16 @@ const CreateAccount = () => {
     "/images/CheckCircle.svg"
   );
 
+  // 동의 여부 상태 관리
+  const [isAgreed, setIsAgreed] = useState(false); // 동의 여부를 관리
+
   // 가입하기 버튼
   const [imageSrcRegister, setImageSrcRegister] = useState(
     "/images/RegisterBefore.svg"
   );
+
+  // 에러 메시지
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleFemale = () => {
     setImageSrcFemale("/images/FemaleAfter.svg"); // 클릭 시 이미지 변경
@@ -42,14 +48,22 @@ const CreateAccount = () => {
   const handleAgree = () => {
     setImageSrcAgree("/images/CheckAfter.svg"); // 클릭 시 이미지 변경
     setImageSrcNotAgree("/images/CheckCircle.svg");
+    setIsAgreed(true);
   };
 
   const handleNotAgree = () => {
     setImageSrcNotAgree("/images/CheckAfter.svg"); // 클릭 시 이미지 변경
     setImageSrcAgree("/images/CheckCircle.svg");
+    setIsAgreed(false);
   };
 
   const handleRegister = () => {
+    if (!isAgreed) {
+      setErrorMessage("서비스 이용 약관에 동의해야 가입할 수 있습니다."); // 에러 메시지 표시
+      return;
+    }
+
+    // 동의된 경우
     setImageSrcRegister("/images/RegisterAfter.svg"); // 클릭 시 이미지 변경
     setTimeout(() => {
       navigate("/welcome"); // 0.3초 후 메인 페이지로 이동
@@ -59,18 +73,6 @@ const CreateAccount = () => {
   return (
     /* 아이폰 헤더 */
     <C.Container>
-      <C.Header>
-        <img
-          id="time"
-          src={`${process.env.PUBLIC_URL}/images/Time.svg`}
-          alt="time"
-        />
-        <img
-          id="group"
-          src={`${process.env.PUBLIC_URL}/images/HeaderGroup.svg`}
-          alt="group"
-        />
-      </C.Header>
       <C.Tt>
         <img id="Tt" src={`${process.env.PUBLIC_URL}/images/Tt.svg`} alt="Tt" />
       </C.Tt>
@@ -141,6 +143,8 @@ const CreateAccount = () => {
       <C.NotAgree>
         <div id="text">비동의</div>
       </C.NotAgree>
+      {/* 에러 메시지 */}
+      {errorMessage && <C.ErrorMessage>{errorMessage}</C.ErrorMessage>}
       <C.RegisterButton id="register" onClick={handleRegister}>
         <img src={process.env.PUBLIC_URL + imageSrcRegister} alt="register" />
       </C.RegisterButton>

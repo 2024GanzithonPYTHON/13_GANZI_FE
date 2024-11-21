@@ -10,27 +10,10 @@ export const Container = styled.div`
   margin: 0 auto;
   position: relative;
 `;
-export const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 393px;
-  height: 30px;
-  align-items: center;
-  padding: 10px;
-  justify-content: center;
-
-  #time {
-    margin-left: -10px;
-  }
-  #group {
-    margin-left: 200px;
-  }
-`;
-/* 헤더 끝 */
 
 export const Logo = styled.div`
   #logo {
-    margin-top: 300px;
+    margin-top: 330px;
     margin-left: 125px;
   }
 `;
