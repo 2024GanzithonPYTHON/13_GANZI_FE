@@ -1,4 +1,5 @@
 import MyComunity from "../components/MyComunity"
+import MyComuHeader from "../layout/MyComuHeader"
 
 export default function MyComu({myData, comuInfo}){
 
@@ -9,6 +10,7 @@ export default function MyComu({myData, comuInfo}){
     return(
         // 내 게시글
         <div>
+            <MyComuHeader/>
             {filterComuInfo.map((comuInfor) => (
                <MyComunity key={comuInfor.id} {...comuInfor}/> 
             ))}

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import SentInput from "../components/SentInput";
 import Comment from "../components/Comment";
 import './ComuPage.css';
+import ComunityHeader from "../layout/ComunityHeader";
 
 
 // 커뮤니티 상세
@@ -32,6 +33,7 @@ export default function ComuPage({comuInfo, commentInfo}){
 
     return(
         <div >
+            <ComunityHeader/>
             <div className="marginbox">
                 <div className="glgl">
                     <img style={{width:45, height:45, marginRight:10}}src = {i[0].img} alt="사진"/>

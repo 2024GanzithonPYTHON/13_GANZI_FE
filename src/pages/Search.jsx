@@ -5,6 +5,8 @@ import ProfileSort from "../components/ProfileSort";
 import Modal from 'react-modal';
 import './Main.css';
 import NavBar from "../components/NavBar";
+import SearchHeader from "../layout/SearchHeader";
+import Footer from "../layout/Footer";
 
 // 메인 검색 페이지
 export default function Search({datas}){
@@ -30,33 +32,13 @@ export default function Search({datas}){
         setSearch(e.target.value);
     };
 
-// 이거 안해도 되는데 그냥 모르고 해버렸어~
-    const filterData = () => {
-        let filteredData;
-    
-        // 검색 데이터 필터 
-        if (searchData === "") {
-            filteredData = datas;
-        } else {
-            filteredData = datas.filter((data) => data.add.includes(searchData));
-        }
-    
-        // select데이터 필터
-        if (selectSort === "highScore") {
-            filteredData.sort((a, b) => b.stars - a.stars); // 별점 내림차순
-        } else if (selectSort === "manyReview") {
-            filteredData.sort((a, b) => b.reviews - a.reviews); // 리뷰 개수 내림차순
-        } else if (selectSort === "latest") {
-            filteredData.sort((a, b) => a.time - b.time); // 시간 오름차순
-        }
-    
-        return filteredData;
-    };
+
 
     
     return(
         <div>
-            <div className="input" style={{height:138}}>
+            <SearchHeader/>
+            <div className="input" style={{height:138, width:375, paddingTop:30}}>
                 {/* 검색창 */}
                 <div className="inputdiv">
                     {/* 검색 아이콘 */}
@@ -89,7 +71,7 @@ export default function Search({datas}){
             </div>
             
                 <hr style={{borderColor: "white", margin: 50}}/>
-                <div className="media" style={{marginTop:70}}>
+                <div className="media" style={{marginTop:80}}>
                     {/* 개별 프로필 출력 */}
                     
                         <div>
@@ -100,6 +82,7 @@ export default function Search({datas}){
                         </div>
                 </div>
                 <NavBar/>
+                <Footer/>
             
         </div>
         

@@ -10,7 +10,13 @@ export default function SentInput({value, onChange, onClick}){
                     onChange={onChange}
                     className="inputinput"
                     placeholder="댓글을 입력해주세요."/>
-                <button className="sentbutton" onClick={onClick}><img src="/sent.png" alt="전송"/></button>
+                <button className="sentbutton" onClick={onClick}>
+                    <img
+                        id="group"
+                        src={`${process.env.PUBLIC_URL}/images/SentButton.svg`}
+                        alt="group"
+                        /> 
+                </button>
             </div>
         </div>
     )

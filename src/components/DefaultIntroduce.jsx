@@ -4,7 +4,7 @@ export default function DefaultIntroduce({i}){
     return(
         <div className="firstIntro">
             <div className="profilephoto">
-                <img src={i.img} alt="man" className="introduceimg"/>
+                <img style={{zIndex:1}}src={i.img} alt="man" className="introduceimg"/>
             </div>
             <div className="inline">
                 <p className="name">{i.user}</p>

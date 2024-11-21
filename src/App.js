@@ -12,6 +12,7 @@ import MyReview from './pages/MyReview';
 import ChatPage from './pages/ChatPage';
 import ComuPage from './pages/ComuPage';
 import MyComu from './pages/MyComu';
+import Alarm from './pages/Alarm';
 
 
 
@@ -19,6 +20,7 @@ import MyComu from './pages/MyComu';
 
 import Header from './layout/Header';
 import Footer from './layout/Footer';
+import HomeFooter from './layout/HomeFooter';
 
 
 import './App.css';
@@ -361,25 +363,22 @@ const [ chatInfo, setChatInfo ] = useState(mockChatData);
    
 
 
-
   const [reviewInfo, setReviewInfo] = useState(mockReviewData)
 
   const idRef=useRef(4)
 
 
-//안봐도 돼
-  const reviewCreate = (reviewText, ID) =>{
+
+  const reviewCreate = (reviewText, ID, selectedRating) =>{
       const newReviewInfo={
         id: idRef.current++,
         reviewId: ID,
         userName: Datas[1].user, 
         keyword: Datas[1].gKeyword, 
         time: new Date().getTime(), 
-        review: reviewText
+        review: reviewText,
+        starts: selectedRating
       }
-      setReviewInfo(
-          [...reviewInfo, newReviewInfo]
-      )
   }
  
 
@@ -403,9 +402,10 @@ const [ chatInfo, setChatInfo ] = useState(mockChatData);
         <Route path='/ChatPage/:ID' element={<ChatPage datas={Datas} myData={myData} chatInfo={chatInfo}/>}/>
         <Route path='/ComuPage/:ID' element={<ComuPage comuInfo={comuInfo} commentInfo={commentInfo}/>}/>
         <Route path='/MyComu' element={<MyComu myData ={myData} comuInfo ={comuInfo}/>}/>
+        <Route path='/Alarm' element={<Alarm/>}/>
       </Routes>
       </bb>
-      <Footer/>
+      
       </div>
     </BrowserRouter>
   );

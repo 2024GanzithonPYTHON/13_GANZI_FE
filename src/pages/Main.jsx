@@ -7,6 +7,8 @@ import Modal from 'react-modal';
 import KeywordSort from "../components/KeywordSort";
 import ProfileSort from "../components/ProfileSort";
 import NavBar from "../components/NavBar";
+import HomeFooter from "../layout/HomeFooter";
+import HomeHeader from "../layout/HomeHeader";
 
 // 메인페이지
 export default function Main({datas}){
@@ -72,15 +74,6 @@ export default function Main({datas}){
     const { ID } = useParams();
 
 
-    const filterPage = () => (
-        datas.filter((data)=>
-            data.pageId==ID
-        )
-    )
-
-  
-    
-   
    
     const onChangeSearch=(e)=>{
         setSearch(e.target.value);
@@ -98,27 +91,7 @@ export default function Main({datas}){
     },[selectSort])
     
 
-    const filterData = () => {
-        let filteredData;
-    
-        // 기존 필터링 조건 (gKeyword에 따라 필터링)
-        if (selectData === "") {
-            filteredData = datas;
-        } else {
-            filteredData = datas.filter((data) => data.gKeyword.includes(selectData));
-        }
-    
-        // 추가된 정렬 조건 (selectSort 기준으로 정렬)
-        if (selectSort === "stars") {
-            filteredData.sort((a, b) => b.stars - a.stars); // 별점 내림차순
-        } else if (selectSort === "manyReview") {
-            filteredData.sort((a, b) => b.reviews - a.reviews); // 리뷰 개수 내림차순
-        } else if (selectSort === "highScore") {
-            filteredData.sort((a, b) => a.time - b.time); // 시간 오름차순
-        }
-    
-        return filteredData;
-    };
+ 
 
 
     
@@ -136,7 +109,8 @@ export default function Main({datas}){
     
     return(
         <div className="main">
-            <div className="input">
+            <HomeHeader/>
+            <div className="input" style={{width:375, paddingTop:30}}>
                 <div className="inputdiv">
                 <Link to='/Search'>
                     <svg className="icon" aria-hidden="true" viewBox="0 0 24 24">
@@ -157,8 +131,8 @@ export default function Main({datas}){
             <div className="profilesarray">
             
                 <div className="placecenter">
-                    <h2>실시간 추천</h2>
-                    <p>{datas[1].user}님의 관심사를 잘 알고 있는 분이에요.</p>
+                    <h2 style={{fontSize:24,fontWeight:700}}>실시간 추천</h2>
+                    <p style={{fontSize:15,fontWeight:700}}>{datas[1].user}님의 관심사를 잘 알고 있는 분이에요.</p>
                     <div className="recocenter" > 
                     {recoData.map((recodata)=>(
                         <RecomendData  key={recodata.id} {...recodata}/>
@@ -171,6 +145,7 @@ export default function Main({datas}){
                     {/* select대신 키워드.... */}
                     <div className="selectbox" onClick={openModal2}><p>{sorting}</p><img style={{width:10, height:10, marginTop:14, marginLeft:10}}src="./underarrow.png" alt="아래 화살표"/></div>
                         <Modal
+                            style={{zIndex: 1100}}
                             isOpen={isOpen2}
                             onRequestClose={closeModal2}
                             contentLabel="Example Modal"
@@ -183,13 +158,14 @@ export default function Main({datas}){
                         {/* select대신 최신순, 리뷰 많은 순.... */}
                     <div className="selectbox"onClick={openModal1}><p>{keyword}</p><img style={{width:10, height:10, marginTop:14, marginLeft:10}}src="./underarrow.png" alt="아래 화살표"/></div>
                     <Modal
+                        style={{zIndex: 1100}}
                         isOpen={isOpen1}
                         onRequestClose={closeModal1}
                         contentLabel="Example Modal"
                         overlayClassName="overlay"
                         className="modal">
                         <div id="modal-scrollable" className="modal-scrollable">
-                        <KeywordSort closeModal={closeModal1} setSelectData={setSelectData} setKeyword={setKeyword}/>
+                        <KeywordSort style={{zIndex: 1100}} closeModal={closeModal1} setSelectData={setSelectData} setKeyword={setKeyword}/>
                         </div>
                     </Modal>
             
@@ -204,7 +180,7 @@ export default function Main({datas}){
                 </div>
                 <NavBar/>
             </div>
-            
+            <HomeFooter/>
         </div>
         
     )

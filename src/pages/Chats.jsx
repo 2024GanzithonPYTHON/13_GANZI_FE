@@ -1,16 +1,20 @@
 import { Link } from "react-router-dom"
+import ChatFooter from "../layout/ChatFooter"
+import AlarmHeader from "../layout/AlarmHeader"
+import ChatHeader from "../layout/ChatHeader"
+import Chating from "../components/Chating"
 // 채팅 목록 수정 해야함
 export default function Chats({chatInfo}){
     return(
         <>
-            <Link to={`/ChatPage/${chatInfo[2].chatId}`} key={chatInfo[2].chatInfo}>
-                <div className="marginbox">
-                    {chatInfo[2].sentid}
-                    <p>{chatInfo[2].text}</p>
-                </div>
-            </Link>
-
-            <hr />
+        <ChatHeader/>
+            
+            {chatInfo.map((chatInfor)=>(
+                        <Chating key={chatInfor.chatId}{...chatInfor}/>
+                    ))
+                    }
+            
+            <ChatFooter/>
         </>
     )
 }

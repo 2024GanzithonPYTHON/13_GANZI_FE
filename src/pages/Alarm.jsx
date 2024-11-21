@@ -1,4 +1,5 @@
 import Alarms from "../components/Alarms"
+import AlarmHeader from "../layout/AlarmHeader"
 
 export default function Alarm(){
     const alarmData=[{
@@ -14,21 +15,18 @@ export default function Alarm(){
         content:"내용",
     },
     {
-        id:2,
-        NotificationType: "LIKE",
-        userName: "닉네임2",
-    },
-    {
         id:3,
         NotificationType: "REVIEW",
         userName: "닉네임1",
         content:"내용",
-    }
+    },
+  
 ]
 
 
     return(
         <div>
+            <AlarmHeader/>
             {alarmData.map((alarm) => (
                 <Alarms key={alarm.id} {...alarm}/>
             ))}

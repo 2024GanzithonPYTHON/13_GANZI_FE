@@ -6,6 +6,7 @@
 .Comun{
     width: 85%;
     margin: auto;
+
 }
 .Comun>p{
     font-size: 13px;
@@ -18,4 +19,16 @@
 .pcolor{
     
     margin: 0;
+    height: 20px;
+}
+.MyComun{
+    width: 85%;
+    margin: auto;
+}
+.MyComun>p{
+    font-size: 13px;
+    text-decoration: none;
+}
+.graycolor{
+    color: #888888;
 }

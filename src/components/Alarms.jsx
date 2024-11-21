@@ -24,11 +24,9 @@ export default function Alarms({
         } else if (NotificationType === "COMMENT") {
             setLink(`/ComuPage/${id}`)
             setAlarmMessage(`${userName}님이 새로운 댓글을 달았어요`)
-        } else if (NotificationType === "REVIEW"){
+        } else{
             setLink(`/MyReview`)
             setAlarmMessage("재능 교환 후기가 달렸어요")
-        }else{
-            setAlarmMessage(`${userName}님이 좋아요를 달았어요`)
         }
 
     }
@@ -37,7 +35,7 @@ export default function Alarms({
 
     return(
         <div>
-            <Link to={link} key={id} >
+            <Link to={link} key={id} style={{ textDecoration: 'none', color:"black" }}>
             <div className="placecenter">
                 <p style={{fontSize:13, fontWeight:"bold"}}>{alarmMessage}</p>
                 <p style={{fontSize:13}}>{content}</p>

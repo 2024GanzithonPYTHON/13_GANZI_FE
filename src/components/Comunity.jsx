@@ -12,10 +12,10 @@ export default function Comunity({
 }){
     return(
         <>
-        <Link to={`/ComuPage/${id}`} key={id}>
-        <div className="Comun" style={{textDecoration: "none",}}>
+        <Link to={`/ComuPage/${id}`} key={id} style={{ textDecoration: 'none' }}>
+        <div className="Comun alink" style={{textDecoration: "none", height: 143}}>
             <p className='title'>{title}</p>
-            <p>{content}</p>
+            <p style={{height:50}}>{content}</p>
             <div className="Comun pcolor">
                 <p className='inlineblock'>{userName}</p>
                 <p className='inlineblock'>{userKeyword}</p>

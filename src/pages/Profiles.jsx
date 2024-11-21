@@ -6,8 +6,11 @@ import '../components/Introduce';
 import DetailIntroduce from "../components/DetailIntroduce";
 import TalentIntroduce from "../components/TalentIntroduce";
 
+
 import { useParams } from "react-router-dom";
 import Introduce from "../components/Introduce";
+import AlarmHeader from "../layout/AlarmHeader";
+import Footer from "../layout/Footer";
 // 유저 상세 페이지
 const Profiles=({datas})=>{
     const { ID } = useParams();
@@ -19,6 +22,7 @@ const Profiles=({datas})=>{
     
     return(
         <>
+        <AlarmHeader/>
         {/* Introduce 상단 닉네임, 키워드, 지역 등 */}
         <Introduce i={i[0]}/>
         <hr />
@@ -36,8 +40,14 @@ const Profiles=({datas})=>{
         <DetailIntroduce i={i[0]}/>
       
         <Link to={`/ChatPage/${i[0].id}`} key={i[0].id}>
-        <button className="button"><img src='./chatbutton.png' alt="수정" /></button>
+        <button className="button">
+            <img className="HeaderCenter" style={{width:24, height:24}}
+                      id="ChaWhiteChatting"
+                      src={`${process.env.PUBLIC_URL}/images/WhiteChat.svg`}
+                      alt="WhiteChat"
+                  /></button>
         </Link>
+        <Footer/>
         </>
         
     )

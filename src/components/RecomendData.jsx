@@ -18,7 +18,7 @@ export default function RecomendData({
         <>
         <Link to={`/Profilepage/${id}`} key={id} style={{ textDecoration: "none", color:"black"}}>
 
-        <div className='recobox '>
+        <div className='recobox alink'>
             <img src={img} alt="사진"/>
             <p className='boldname textcenter'>{user}</p>
             <p className='textcenter'>{add}</p>

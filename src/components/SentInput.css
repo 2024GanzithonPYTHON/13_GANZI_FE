@@ -1,8 +1,8 @@
 .inputbox{
     position: fixed;
-    width: 100%;
+    width: 375px;
     height: 35px;
-    bottom: 80px;
+    bottom: 20px;
 
 }
 .inputboxbox{
@@ -17,8 +17,9 @@
     height: 25px;
     border: none;
     background-color: white;
-    margin-left: 1%;
-    bottom: 82px;
+    margin-left: 5px;
+    margin-bottom: 4px;
+    bottom: 22px;
     align-self: flex-end;
     margin-right: auto;
 }
@@ -32,6 +33,6 @@
     border-radius: 10px;
 }
 .sentbutton>img{
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
 }

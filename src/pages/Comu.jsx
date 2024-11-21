@@ -6,6 +6,8 @@ import KeywordSort from "../components/KeywordSort";
 import ProfileSort from "../components/ProfileSort";
 import Modal from 'react-modal';
 import Comunity from '../components/Comunity';
+import ComunityFooter from '../layout/ComunityFooter';
+import ComunityHeader from '../layout/ComunityHeader';
 
 // 커뮤니티 메인
 export default function Comu({datas, comuInfo}){
@@ -43,8 +45,9 @@ export default function Comu({datas, comuInfo}){
 
     return(
         <>
+        <ComunityHeader/>
         {/* 검색 */}
-            <div className="input" style={{height:125}}>
+            <div className="input" style={{height:125, width:375, paddingTop:30}}>
                 <div className="inputdiv">
                     <svg className="icon" aria-hidden="true" viewBox="0 0 24 24">
                         <g>
@@ -53,7 +56,6 @@ export default function Comu({datas, comuInfo}){
                     </svg>
                     <input value={searchData} 
                         onChange={onChangeSearch}
-
                         className="inputsearch"/>
                 </div>
 
@@ -85,7 +87,14 @@ export default function Comu({datas, comuInfo}){
                     <Comunity key={comuInfo.id} {...comuInfo}/>
                 ))}
             </div>
-            <Link to="/NewComu"><button className='button'><img src='./pencilbutton.png' alt="수정" /></button></Link>
+            <Link to="/NewComu"><button className='button'>
+                    <img className="HeaderCenter" style={{width:24, height:24}}
+                            id="Pencil"
+                            src={`${process.env.PUBLIC_URL}/images/Pencil.svg`}
+                            alt="Pencil"
+                        />
+                  </button></Link>
+            <ComunityFooter/>
             
         </>
     )

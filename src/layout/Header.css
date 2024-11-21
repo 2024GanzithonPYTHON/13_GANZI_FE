@@ -17,3 +17,49 @@
     justify-content: center;
     z-index: 1000;
   }
+  .HeaderDiv{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1000;
+  }
+  .HeaderCenter{
+    margin: auto;
+    width: 60px;
+  }
+  .PageHeader{
+    position: fixed;
+    top:30px;
+    left: 0;
+    width: 375px;
+    height: 110px;
+    background-color: #ffffff;
+    z-index: 1000;
+  }
+  .talentTradeButton{
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+  }
+  .modalFlex{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
+  .TtCheckButton{
+    width: 80%;
+    margin: auto;
+    background-color: #7AB2D3;
+    color: #ffffff;
+    border: none;
+    height: 44px;
+    border-radius: 10px;
+  }
+  .HeaderName{
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    
+  }

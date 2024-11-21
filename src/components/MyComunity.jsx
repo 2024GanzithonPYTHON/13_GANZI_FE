@@ -13,8 +13,8 @@ export default function MyComunity({
 {
     return(
         <div>
-            <Link to={`/ComuPage/${id}`} key={id}>
-                <div className="Comun">
+            <Link to={`/ComuPage/${id}`} key={id} style={{ textDecoration: 'none' }}>
+                <div className="MyComun alink">
                     <div className="glgl" style={{fontSize:13, color: "black"}}>
                         <p  style={{marginBottom:0}} className="title">{title}</p>
                         <p style={{marginBottom:0}} className="rightright">날짜</p>

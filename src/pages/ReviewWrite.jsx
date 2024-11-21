@@ -2,6 +2,7 @@ import DefaultIntroduce from "../components/DefaultIntroduce"
 import { useParams } from "react-router-dom";
 import { useState, useRef } from "react";
 import './ReviewWrite.css'
+import ReviewHeader from "../layout/ReviewHeader";
 
 export default function ReviewWrite({datas ,reviewCreate }){
     const { ID } = useParams();
@@ -14,7 +15,7 @@ export default function ReviewWrite({datas ,reviewCreate }){
     ); 
 
 
-// 여긴 안봐도 돼
+
     const [reviewText, setReviewText] = useState("");
 
     const onChangeReviewText = (e) =>{
@@ -25,10 +26,11 @@ export default function ReviewWrite({datas ,reviewCreate }){
             textareaRef.current.focus();
             return;
         }
-        reviewCreate(reviewText, ID);
+        reviewCreate(reviewText, ID, selectedRating);
         setReviewText("");
     }
     
+
     //   이건 별점 매기는거
     const [selectedRating, setSelectedRating] = useState(null);
       
@@ -39,6 +41,7 @@ export default function ReviewWrite({datas ,reviewCreate }){
     
     return(
         <>
+        <ReviewHeader onClickReviewStoring={onClickReviewStoring}/>
         {/* DefaultIntroduce 상단 닉네임, 지역, 키워드... 등등 */}
             <DefaultIntroduce i={i[0]} />
             <hr />
@@ -57,7 +60,6 @@ export default function ReviewWrite({datas ,reviewCreate }){
             <div className="textarea">
                 <textarea onChange={onChangeReviewText}  ref={textareaRef} className="customtextarea" placeholder={`${i[0].user}님에 대해 남기고 싶은 후기를 작성해주세요.`}></textarea>
             </div>
-            <button onClick={onClickReviewStoring}>완료</button>
         </>
     )
 }

@@ -25,7 +25,7 @@ export default function PersonalProfile({
             
             <Link to={`/Profilepage/${id}`} key={id} style={{ textDecoration: "none"}}>
 
-            <div className='personalbox'>
+            <div className='personalbox alink'>
                 <img src={img} alt="사진"/>
 
                 <p className='boldname textcenter'>{user} {add}</p>
