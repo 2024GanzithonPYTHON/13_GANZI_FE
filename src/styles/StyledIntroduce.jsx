@@ -32,7 +32,7 @@ export const Text = styled.div`
   width: 205px;
   height: 44px;
   margin-left: 50px;
-  margin-top: 24px;
+  margin-top: 54px;
   #text {
     color: #000;
     font-family: Pretendard;

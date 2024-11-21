@@ -30,7 +30,7 @@ export const Header = styled.div`
 
 export const Logo = styled.div`
   #logo {
-    margin-top: 300px;
+    margin-top: 330px;
     margin-left: 125px;
   }
 `;

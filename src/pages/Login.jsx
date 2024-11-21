@@ -36,18 +36,6 @@ const Login = () => {
   return (
     /* 아이폰 헤더 */
     <L.Container>
-      <L.Header>
-        <img
-          id="time"
-          src={`${process.env.PUBLIC_URL}/images/Time.svg`}
-          alt="time"
-        />
-        <img
-          id="group"
-          src={`${process.env.PUBLIC_URL}/images/HeaderGroup.svg`}
-          alt="group"
-        />
-      </L.Header>
       <L.Logo>
         <img
           id="logo"

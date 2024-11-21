@@ -59,18 +59,6 @@ const CreateAccount = () => {
   return (
     /* 아이폰 헤더 */
     <C.Container>
-      <C.Header>
-        <img
-          id="time"
-          src={`${process.env.PUBLIC_URL}/images/Time.svg`}
-          alt="time"
-        />
-        <img
-          id="group"
-          src={`${process.env.PUBLIC_URL}/images/HeaderGroup.svg`}
-          alt="group"
-        />
-      </C.Header>
       <C.Tt>
         <img id="Tt" src={`${process.env.PUBLIC_URL}/images/Tt.svg`} alt="Tt" />
       </C.Tt>

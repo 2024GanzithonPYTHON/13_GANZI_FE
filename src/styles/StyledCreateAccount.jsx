@@ -31,7 +31,7 @@ export const Header = styled.div`
 export const Tt = styled.div`
   #Tt {
     margin-left: 170px;
-    margin-top: 50px;
+    margin-top: 80px;
   }
 `;
 

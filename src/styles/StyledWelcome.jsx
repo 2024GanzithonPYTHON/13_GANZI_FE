@@ -45,7 +45,7 @@ export const Text = styled.div`
   width: 280px;
   height: 44px;
   margin-left: 57px;
-  margin-top: 225px;
+  margin-top: 255px;
 
   #text {
     color: #7ab2d3;

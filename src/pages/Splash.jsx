@@ -17,18 +17,6 @@ const Splash = () => {
   return (
     /* 아이폰 헤더 */
     <S.Container>
-      <S.Header>
-        <img
-          id="time"
-          src={`${process.env.PUBLIC_URL}/images/Time.svg`}
-          alt="time"
-        />
-        <img
-          id="group"
-          src={`${process.env.PUBLIC_URL}/images/HeaderGroup.svg`}
-          alt="group"
-        />
-      </S.Header>
       <S.Logo>
         <img
           id="logo"

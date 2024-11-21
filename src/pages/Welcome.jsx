@@ -25,18 +25,6 @@ const Welcome = () => {
   return (
     /* 아이폰 헤더 */
     <W.Container>
-      <W.Header>
-        <img
-          id="time"
-          src={`${process.env.PUBLIC_URL}/images/Time.svg`}
-          alt="time"
-        />
-        <img
-          id="group"
-          src={`${process.env.PUBLIC_URL}/images/HeaderGroup.svg`}
-          alt="group"
-        />
-      </W.Header>
       <W.Text>
         <div id="text">가입을 환영해요!</div>
       </W.Text>
