@@ -1,28 +1,27 @@
-.customtextarea{
-    resize: none;
-    width: 100%;
-    margin: auto;
-    border: none;
-    height: 300px;
-    font-size: 13px;
-
+.customtextarea {
+  resize: none;
+  width: 100%;
+  margin: auto;
+  border: none;
+  height: 300px;
+  font-size: 13px;
 }
-.center{
-    width: 85%;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+.center {
+  width: 85%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 610px;
 }
-.custominput{
-    width: 100%;
-    margin: auto;
-    border: none;
-    font-size: 13px;
-    
+.custominput {
+  width: 100%;
+  margin: auto;
+  border: none;
+  font-size: 13px;
 }
-hr{
-    width: 90%;
-    border: 0px;
-    border-top: 1px solid #000000;
-    border-color: #000000;
+hr {
+  width: 90%;
+  border: 0px;
+  border-top: 1px solid #000000;
+  border-color: #000000;
 }

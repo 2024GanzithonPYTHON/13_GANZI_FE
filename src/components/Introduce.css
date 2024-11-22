@@ -1,108 +1,99 @@
-.name{
-    display: inline;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 20px;
-    font-weight: bold;
+.name {
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.box {
+  display: inline-block;
 
-}
-.box{
-    display: inline-block;
-    
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 
-    background: #F1F1F1;
-    box-shadow: 0px 0.946708px 10.3191px rgba(0, 0, 0, 0.25);
-    border-radius: 11.3605px;
-    font-size: 1cap;
-    width: 60px;
-    padding: 5px;
-    text-align: center;
-    font-weight: 500;
-    margin-left: 10px;
-    margin-bottom: 0;
+  background: #f1f1f1;
+  box-shadow: 0px 0.946708px 10.3191px rgba(0, 0, 0, 0.25);
+  border-radius: 11.3605px;
+  font-size: 1cap;
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  font-weight: 500;
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+.boxbox {
+  margin-bottom: 10px;
+}
+.place {
+  margin: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1cap;
+  font-weight: 500;
+}
+.ab {
+  height: 80px;
+  width: 85%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  background: rgba(122, 178, 211, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding-top: 1px;
+}
+.ppsize > div {
+  display: flex;
+  flex-direction: row;
+  width: 296px;
+  height: 101px;
+  margin-left: -10px;
+}
+.inline {
+  display: inline-block;
+  margin-left: 10px;
+}
+.pp {
+  margin: 11px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  color: #000000;
+}
+.profilephoto {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
 
+  background: #ffffff;
+  border: 1px solid #d2d2d2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
 }
-.boxbox{
-    margin-bottom: 10px;
+.introduceimg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.place{
-    margin: 10px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: 1cap;
-    font-weight: 500;
-    
-
+.firstIntro {
+  height: 150px;
+  width: 85%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.ab{
-    height: 80px;
-    width: 85%;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-weight: bold;
-    background: rgba(122, 178, 211, 0.3);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
-    padding-top: 1px;
-
+hr {
+  width: 90%;
+  border: 0px;
+  border-top: 1px solid #000000;
 }
-.ppsize>div{
-    display: flex;
-    flex-direction: row;
+.ppsize {
+  width: 80%;
+  margin: auto;
 }
-.inline{
-    display: inline-block;
-    margin-left: 10px;
-    
-}
-.pp{
-    margin: 11px;
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px;
-    color: #000000;
-}
-.profilephoto{
-    position: relative;
-    display: inline-block;
-    width: 120px;
-    height: 120px;
-    
-    background: #FFFFFF;
-    border: 1px solid #D2D2D2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-
-
-}
-.introduceimg{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.firstIntro{
-    height: 150px;
-    width: 85%;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-hr{
-    width: 90%;
-    border : 0px;
-    border-top: 1px solid #000000;
-    
-}
-.ppsize{
-    width: 80%;
-    margin: auto;
-}
-
-
-

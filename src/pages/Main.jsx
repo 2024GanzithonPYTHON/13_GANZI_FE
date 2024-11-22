@@ -1,5 +1,5 @@
 import "./Main.css";
-import { useState, useEffect } from "react";
+import { useState,useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Modal from "react-modal";
 import KeywordSort from "../components/KeywordSort";
@@ -11,7 +11,9 @@ import axios from "axios";
 
 // 메인페이지
 
-export default function Main( ) {
+
+export default function Main({ datas }) {
+    
   const [selectData, setSelectData] = useState("");
   const [selectSort, setSelectSort] = useState("latest");
   const [searchData, setSearch] = useState("");
@@ -78,12 +80,23 @@ export default function Main( ) {
     fetchData();
     fetchRecommendationsData();
   }, []);
+
+
   return (
-    <div className="main">
-    
+    <div
+      className="main"
+      style={{
+        marginLeft: "0px",
+      }}
+    >
       <HomeHeader />
       <div className="input" style={{ width: 375, paddingTop: 30 }}>
-        <div className="inputdiv">
+        <div
+          className="inputdiv"
+          style={{
+            marginLeft: "43px",
+          }}
+        >
           <Link to="/Search">
             <svg className="icon" aria-hidden="true" viewBox="0 0 24 24">
               <g>
@@ -97,22 +110,32 @@ export default function Main( ) {
             />
           </Link>
         </div>
-        <hr style={{ marginTop: 20 }} />
+        <hr style={{ marginTop: 20, marginLeft: 26 }} />
       </div>
 
       <div className="profilesarray">
-        <div className="placecenter">
+        <div
+          className="placecenter"
+          style={{
+            width: "320px",
+            marginLeft: "590px",
+          }}
+        >
           <h2 style={{ fontSize: 24, fontWeight: 700 }}>실시간 추천</h2>
           <p style={{ fontSize: 15, fontWeight: 700 }}>
             "닉네임"님의 관심사를 잘 알고 있는 분이에요.
           </p>
-          <div className="recocenter">
-            {/* 추천 데이터 연동 */}
-          </div>
-        </div>
-        <hr />
 
-        <div className="placecenter flex">
+          <div className="recocenter">{/* 추천 데이터 연동 */}</div>
+        </div>
+        <hr style={{ marginLeft: "584px", width: "338px", height: "1px" }} />
+
+        <div
+          className="placecenter flex"
+          style={{
+            marginLeft: "630px",
+          }}
+        >
           <div className="selectbox" onClick={openModal2}>
             <p>{sorting}</p>
             <img
@@ -122,7 +145,18 @@ export default function Main( ) {
             />
           </div>
           <Modal
-            style={{ zIndex: 1100 }}
+            style={{
+              overlay: {
+                backgroundColor: "rgba(0, 0, 0, 0.5)", // 배경 투명도 조정
+              },
+              content: {
+                width: "375px", // 너비
+                height: "333px", // 높이
+                margin: "auto", // 화면 중앙에 위치
+                borderRadius: "10px", // 모서리 둥글게
+                padding: "20px", // 내부 여백
+              },
+            }}
             isOpen={isOpen2}
             onRequestClose={closeModal2}
             contentLabel="Profile Sort Modal"
@@ -147,7 +181,18 @@ export default function Main( ) {
             />
           </div>
           <Modal
-            style={{ zIndex: 1100 }}
+            style={{
+              overlay: {
+                backgroundColor: "rgba(0, 0, 0, 0.5)", // 배경 투명도 조정
+              },
+              content: {
+                width: "375px", // 너비
+                height: "333px", // 높이
+                margin: "auto", // 화면 중앙에 위치
+                borderRadius: "10px", // 모서리 둥글게
+                padding: "20px", // 내부 여백
+              },
+            }}
             isOpen={isOpen1}
             onRequestClose={closeModal1}
             contentLabel="Keyword Sort Modal"
