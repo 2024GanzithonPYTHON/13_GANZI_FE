@@ -1,6 +1,7 @@
 import "./SentInput.css"
 // input component css 수정 해야함
 export default function SentInput({value, onChange, onClick}){
+
     return(
         <div className="inputbox">
             <div className="inputboxbox">

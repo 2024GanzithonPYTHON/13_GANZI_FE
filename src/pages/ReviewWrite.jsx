@@ -4,30 +4,26 @@ import { useState, useRef } from "react";
 import './ReviewWrite.css'
 import ReviewHeader from "../layout/ReviewHeader";
 
-export default function ReviewWrite({datas ,reviewCreate }){
+export default function ReviewWrite(){
     const { ID } = useParams();
 
     const textareaRef=useRef();
 
-    const i = datas.filter((data)=>
-        data.id==ID
     
-    ); 
-
-
 
     const [reviewText, setReviewText] = useState("");
 
     const onChangeReviewText = (e) =>{
         setReviewText(e.target.value);
     }
+    
     const onClickReviewStoring = () =>{
         if(reviewText===""){
             textareaRef.current.focus();
             return;
         }
-        reviewCreate(reviewText, ID, selectedRating);
-        setReviewText("");
+        console.log(reviewText)
+        console.log(selectedRating)
     }
     
 
@@ -43,7 +39,8 @@ export default function ReviewWrite({datas ,reviewCreate }){
         <>
         <ReviewHeader onClickReviewStoring={onClickReviewStoring}/>
         {/* DefaultIntroduce 상단 닉네임, 지역, 키워드... 등등 */}
-            <DefaultIntroduce i={i[0]} />
+            <DefaultIntroduce/>
+            {/* <DefaultIntroduce i={i[0]}/> 프로필 조회 연동한 정보 넣기 */}
             <hr />
             <div className="stars"> 
                 {/* 별 아이콘 */}
@@ -58,7 +55,8 @@ export default function ReviewWrite({datas ,reviewCreate }){
             </div>
             <hr />
             <div className="textarea">
-                <textarea onChange={onChangeReviewText}  ref={textareaRef} className="customtextarea" placeholder={`${i[0].user}님에 대해 남기고 싶은 후기를 작성해주세요.`}></textarea>
+                <textarea onChange={onChangeReviewText}  ref={textareaRef} className="customtextarea" placeholder={`"닉네임"님에 대해 남기고 싶은 후기를 작성해주세요.`}></textarea>
+                {/* ${i[0].user}를 "닉네임" 자리에 넣으면 됩니다 프로필 조회로 받아들인 정보 연동해서 닉네임*/}
             </div>
         </>
     )

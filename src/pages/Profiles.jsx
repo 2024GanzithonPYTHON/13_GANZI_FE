@@ -12,41 +12,40 @@ import Introduce from "../components/Introduce";
 import AlarmHeader from "../layout/AlarmHeader";
 import Footer from "../layout/Footer";
 // 유저 상세 페이지
-const Profiles=({datas})=>{
+const Profiles=()=>{
     const { ID } = useParams();
-
-    const i = datas.filter((data)=>
-        data.id==ID
-    
-    ); 
+// ID가 조회할 회원의 id
     
     return(
         <>
         <AlarmHeader/>
         {/* Introduce 상단 닉네임, 키워드, 지역 등 */}
-        <Introduce i={i[0]}/>
+        <Introduce/>
+        {/* 연동으로 받은 데이터 Introduce에 보내기 <Intorduce 데이터 이름={데이터 이름}/> */}
         <hr />
         <div className="clickdiv">
                 <div className="underline">재능 소개</div>
-            <Link to={`/Reviewpage/${i[0].id}`} key={i[0].id} style={{ textDecoration: "none"}}>
+            {/* <Link to={`/Reviewpage/${ID}`} key={ID} style={{ textDecoration: "none"}}>  */}
                 <div className="text underline">후기</div>
-            </Link>
+            {/* </Link> */}
             
         </div>
         {/* 원하는 성별, 성별, 자신있는거 */}
-        <TalentIntroduce i={i[0]}  />
+        <TalentIntroduce  />
+        {/* Introduce랑 동일하게 데이터 보내기 */}
         <hr />
         {/* 포폴 */}
-        <DetailIntroduce i={i[0]}/>
+        <DetailIntroduce/>
+        {/* Introduce랑 동일하게 데이터 보내기 */}
       
-        <Link to={`/ChatPage/${i[0].id}`} key={i[0].id}>
+        {/* <Link to={`/ChatPage/${ID}`} key={ID}> */}
         <button className="button">
             <img className="HeaderCenter" style={{width:24, height:24}}
                       id="ChaWhiteChatting"
                       src={`${process.env.PUBLIC_URL}/images/WhiteChat.svg`}
                       alt="WhiteChat"
                   /></button>
-        </Link>
+        {/* </Link> */}
         <Footer/>
         </>
         

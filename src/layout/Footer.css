@@ -37,13 +37,7 @@
     text-decoration: none;
 
   }
-  .HeaderDiv{
-    position: fixed;
-    top:30px;
-    left: 0;
-    width: 375px;
-    height: 110px;
-  }
+ 
   .blueColor{
     color: #7AB2D3 !important;
   }

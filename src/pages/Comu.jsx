@@ -8,9 +8,10 @@ import Modal from 'react-modal';
 import Comunity from '../components/Comunity';
 import ComunityFooter from '../layout/ComunityFooter';
 import ComunityHeader from '../layout/ComunityHeader';
+import ComuSort from '../components/ComuSort';
 
 // 커뮤니티 메인
-export default function Comu({datas, comuInfo}){
+export default function Comu(){
     const [ selectData, setSelectData ] = useState("");
     const [ selectSort, setSelectSort ] = useState("최신순");
     const [ searchData, setSearch ]=useState("");
@@ -26,9 +27,14 @@ export default function Comu({datas, comuInfo}){
         setSelectData( e.target.value);
     }; 
     
-    useEffect(() => {
-        console.log(selectData)
-    },[selectData])
+    const activeEnter = (e) => {
+        if(e.key === "Enter") {
+          activeButton();
+        }
+    };
+    const activeButton = () => {
+        console.log(searchData);
+    }
     
 
 
@@ -56,15 +62,15 @@ export default function Comu({datas, comuInfo}){
                     </svg>
                     <input value={searchData} 
                         onChange={onChangeSearch}
+                        onKeyDown={activeEnter}
                         className="inputsearch"/>
                 </div>
 
-
-
                 <hr style={{marginTop:10, borderColor:"white"}}/>
+
                 {/* select 대신 정렬 */}
                 <div className="placecenter flex" >
-                <div className="selectbox" onClick={openModal2}><p>{keyword}</p><img style={{width:10, height:10, marginTop:14, marginLeft:10}}src="./underarrow.png" alt="아래 화살표"/></div>
+                <div className="selectbox" onClick={openModal1}><p>{keyword}</p><img style={{width:10, height:10, marginTop:14, marginLeft:10}}src="./underarrow.png" alt="아래 화살표"/></div>
                     <Modal isOpen={isOpen1} onRequestClose={closeModal1} contentLabel="Example Modal" overlayClassName="overlay" className="modal">
                         <div id="modal-scrollable" className="modal-scrollable">
                         <KeywordSort closeModal={closeModal1} setSelectData={setSelectData} setKeyword={setKeyword}/>
@@ -74,7 +80,7 @@ export default function Comu({datas, comuInfo}){
                     <div className="selectbox" onClick={openModal2}><p>{sorting}</p><img style={{width:10, height:10, marginTop:14, marginLeft:10}}src="./underarrow.png" alt="아래 화살표"/></div>
                     <Modal isOpen={isOpen2} onRequestClose={closeModal2} contentLabel="Example Modal" overlayClassName="overlay" className="modal">
                         <div id="modal-scrollable" className="modal-scrollable">
-                        <ProfileSort closeModal={closeModal2} setSelectSort={setSelectSort} setSorting={setSorting}/>
+                        <ComuSort closeModal={closeModal2} setSelectSort={setSelectSort} setSorting={setSorting}/>
                         </div>
                     </Modal>
                 </div>
@@ -83,9 +89,9 @@ export default function Comu({datas, comuInfo}){
             </div>
             {/* 커뮤니티 게시물 */}
             <div className='comuarray'>
-                {comuInfo.map((comuInfo)=>(
+                {/* {comuInfo.map((comuInfo)=>(
                     <Comunity key={comuInfo.id} {...comuInfo}/>
-                ))}
+                ))} 연동한 데이터 넣으시면 됩니다. comuInfo->연동한 데이터 이름*/}
             </div>
             <Link to="/NewComu"><button className='button'>
                     <img className="HeaderCenter" style={{width:24, height:24}}
