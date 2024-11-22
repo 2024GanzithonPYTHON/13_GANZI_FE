@@ -1,4 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useState, useRef } from "react";
+
+import "./App.css";
+import Header from "./layout/Header";
+
+// 페이지 컴포넌트
 import Splash from "./pages/Splash";
 import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
@@ -19,37 +26,35 @@ import ComuPage from "./pages/ComuPage";
 import MyComu from "./pages/MyComu";
 import Alarm from "./pages/Alarm";
 
-import Header from "./layout/Header";
-
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState, useRef } from "react";
-
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/Splash" element={<Splash />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/CreateAccount" element={<CreateAccount />} />
-        <Route path="/Welcome" element={<Welcome />} />
-        <Route path="/Introduce" element={<Introduce />} />
-        <Route path="/Main" element={<Main />} />
-        <Route path="/Chats" element={<Chats />} />
-        <Route path="/MyPage" element={<MyPage />} />
-        <Route path="/MyReview" element={<MyReview />} />
-        <Route path="/Comu" element={<Comu />} />
-
-        <Route path="/NewComu" element={<NewComu />} />
-        <Route path="/Search" element={<Search />} />
-        <Route path="/Profilepage/:ID" element={<Profiles />} />
-        <Route path="/Reviewpage/:ID" element={<Reviews />} />
-        <Route path="/ReviewWrite/:ID" element={<ReviewWrite />} />
-        <Route path="/ChatPage/:ID" element={<ChatPage />} />
-        <Route path="/ComuPage/:ID" element={<ComuPage />} />
-        <Route path="/MyComu" element={<MyComu />} />
-        <Route path="/Alarm" element={<Alarm />} />
-      </Routes>
+      <div className="app">
+        <Header />
+        <div className="content">
+          <Routes>
+            <Route path="/Splash" element={<Splash />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/CreateAccount" element={<CreateAccount />} />
+            <Route path="/Welcome" element={<Welcome />} />
+            <Route path="/Introduce" element={<Introduce />} />
+            <Route path="/Main" element={<Main />} />
+            <Route path="/Chats" element={<Chats />} />
+            <Route path="/MyPage" element={<MyPage />} />
+            <Route path="/MyReview" element={<MyReview />} />
+            <Route path="/Comu" element={<Comu />} />
+            <Route path="/NewComu" element={<NewComu />} />
+            <Route path="/Search" element={<Search />} />
+            <Route path="/Profilepage/:ID" element={<Profiles />} />
+            <Route path="/Reviewpage/:ID" element={<Reviews />} />
+            <Route path="/ReviewWrite/:ID" element={<ReviewWrite />} />
+            <Route path="/ChatPage/:ID" element={<ChatPage />} />
+            <Route path="/ComuPage/:ID" element={<ComuPage />} />
+            <Route path="/MyComu" element={<MyComu />} />
+            <Route path="/Alarm" element={<Alarm />} />
+          </Routes>
+        </div>
+      </div>
     </BrowserRouter>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import SockJS from "sockjs-client";
 import { Client } from "@stomp/stompjs";
 import axios from 'axios';
-
+import * as C from "../styles/StyledCreateAccount.jsx";
 
 const ChatComponent = () => {
     const [messages, setMessages] = useState([]); // 채팅 메시지 상태
@@ -102,6 +102,7 @@ const ChatComponent = () => {
     };
 
     return (
+        <C.Container>
         <div>
             <h2>채팅</h2>
             {!connected ? (
@@ -142,7 +143,7 @@ const ChatComponent = () => {
                     전송
                 </button>
             </div>
-        </div>
+        </div></C.Container>
     );
 };
 

@@ -1,8 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as I from "../styles/StyledIntroduce.jsx";
+import axios from 'axios';
 
 const Introduce = () => {
+
+  const domain = "https://api.talent-trade.site";
+    const [profileInfo, setProfileInfo] = useState(); //화면에 뿌려주는 멤버 관리
+ 
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken"); 
+    //멤버조회
+
+    
+    //프로필 조회
+    const fetchData = async () => {
+    try {
+      const response = await axios.get(`${domain}/profile/mine`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`, 
+        },
+      });
+
+      console.log("fetchData API Response:", response.data);
+      setProfileInfo(response.data.data); 
+  
+    } catch (error) {
+      console.error("API Error:", error);
+    }
+  };
+
+  fetchData();
+  }, []);
+
+
   const navigate = useNavigate();
 
   // 버튼 상태 관리
@@ -50,14 +81,28 @@ const Introduce = () => {
         <div id="text3">찾아드릴게요</div>
       </I.Comment>
       <I.ProfileImg>
-        <img
-          id="profile"
-          src={`${process.env.PUBLIC_URL}/images/ProfileMale.svg`}
-          alt="profile"
-        />
+          {profileInfo ? (
+        profileInfo.gender === "FEMALE" ? (
+          <img
+            id="profile"
+            src="/images/PersonWoman.svg"
+            alt="Female Avatar"
+            style={{ width: 50, height: 50 }}
+          />
+        ) : (
+          <img
+            id="profile"
+            src="/images/PersonMan.svg"
+            alt="Male Avatar"
+            style={{ width: 50, height: 50 }}
+          />
+        )
+      ) : (
+        <div>Loading...</div>
+      )}
       </I.ProfileImg>
-      <I.NickName>
-        <div id="text">닉네임</div>
+       <I.NickName>
+        <div id="text">{profileInfo ? profileInfo.nickname : "Loading..."}</div>
       </I.NickName>
       <I.Ment>
         <div id="text">나누고 싶어요!</div>

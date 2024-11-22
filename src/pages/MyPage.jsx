@@ -4,23 +4,34 @@ import TalentIntroduce from "../components/TalentIntroduce"
 import MyPageFooter from "../layout/MyPageFooter";
 import AlarmHeader from "../layout/AlarmHeader";
 import axios from 'axios';
-
-
 import './MyPage.css';
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 // 마이페이지
 export default function MyPage() {
     const [talents, setTalents] = useState([]);
-
+    const domain = "https://api.talent-trade.site";
+    const [member, setMember] = useState(); //화면에 뿌려주는 멤버 관리
+ 
   useEffect(() => {
-    axios.get('https://api.talent-trade.site/profile/mine')
-      .then(response => {
-        setTalents(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching talents:', error);
+    const accessToken = localStorage.getItem("accessToken"); 
+    const fetchData = async () => {
+    try {
+      const response = await axios.get(`${domain}/profile/mine`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`, 
+        },
       });
+
+      console.log("fetchData API Response:", response.data);
+      setMember(response.data); 
+  
+    } catch (error) {
+      console.error("API Error:", error);
+    }
+  };
+
+  fetchData();
   }, []);
 
         

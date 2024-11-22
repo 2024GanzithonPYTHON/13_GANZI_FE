@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as L from "../styles/StyledLogin.jsx";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
+  const domain = "https://api.talent-trade.site";
+
 
   // 버튼 상태 관리
   const [isActive, setIsActive] = useState(false);
@@ -18,11 +21,35 @@ const Login = () => {
     "/images/CheckCircle.svg"
   );
 
-  const handleLoginClick = () => {
-    setImageSrc("/images/LoginAfter.svg"); // 클릭 시 이미지 변경
-    setTimeout(() => {
-      navigate("/main"); // 0.3초 후 메인 페이지로 이동
-    }, 300); // 페이지 이동 지연 시간
+  // Form 데이터 상태 관리
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+
+    // Form 입력 처리
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({ ...formData, [name]: value });
+      console.log(`Field: ${name}, Value: ${value}`);
+    };
+
+  const handleLoginClick = async () => {
+
+    try {
+      const response = await axios.post(`${domain}/member/signin`, formData);
+      const accessToken =  response.data.data.accessToken;
+      localStorage.removeItem("accessToken");
+      localStorage.setItem("accessToken", accessToken);
+      setImageSrc("/images/LoginAfter.svg"); // 클릭 시 이미지 변경
+      setTimeout(() => {
+        navigate("/main"); // 0.3초 후 메인 페이지로 이동
+      }, 300); // 페이지 이동 지연 시간
+    } catch (error) {
+      console.error("로그인 실패:", error.response.data);
+      //setErrorMessage(error.response?.data?.message || "로그인에 실패했습니다.");
+    }    
   };
 
   const handleCheck = () => {
@@ -46,11 +73,17 @@ const Login = () => {
       <L.EmailInput
         type="text"
         placeholder="이메일을 입력하세요"
+        value={formData.email} 
+        name="email"
+        onChange={handleInputChange}
       ></L.EmailInput>
 
       <L.PasswdInput
         type="password"
         placeholder="비밀번호를 입력하세요"
+        value={formData.password}
+        name="password"
+        onChange={handleInputChange} 
       ></L.PasswdInput>
       <L.Circle id="circle" onClick={handleCheck}>
         <img src={process.env.PUBLIC_URL + imageSrcCircle} alt="circle" />
