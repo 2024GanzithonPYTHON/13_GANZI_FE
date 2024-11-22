@@ -8,6 +8,7 @@ import NavBar from "../components/NavBar";
 import HomeFooter from "../layout/HomeFooter";
 import HomeHeader from "../layout/HomeHeader";
 import axios from "axios";
+import PersonalProfile from "../components/PersonalProfile"
 
 // 메인페이지
 
@@ -211,7 +212,10 @@ export default function Main({ datas }) {
 
         <hr style={{ borderColor: "white" }} />
         <div className="media">
-  {/* 데이터 출력 */}
+        {members.slice(offset, offset + limit).map((datas) => (
+                        <PersonalProfile className="item" key={datas.id} {...datas}/>
+                    ))}
+  {/* 데이터 출력
   {members.length > 0 ? (
     members.map((member) => (
       <div id="member" key={member.memberId}>
@@ -236,7 +240,7 @@ export default function Main({ datas }) {
     ))
   ) : (
     <p>사용자가 없습니다.</p>
-  )}
+  )} */}
 </div>
 
         <NavBar />

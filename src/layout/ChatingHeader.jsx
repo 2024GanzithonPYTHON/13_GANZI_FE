@@ -26,7 +26,7 @@ export default function ChatingHeader({chatInfo}){
                 alt="BackButton"
             />
             <div className="HeaderCenter jljl HeaderName" style={{width:100, height:48, fontSize:20, fontWeight:400, marginTop:40}}>
-                <p style={{margin:"auto", justifyItems:"center", alignItems:"center"}}>{chatInfo[1].chatId}</p>
+                <p style={{margin:"auto", justifyItems:"center", alignItems:"center"}}>{chatInfo.roomId}</p>
                 <div className="glgl" style={{margin:"auto"}}>
                     <p style={{fontSize:13, fontWeight:700, margin:2}}>IT</p><p style={{fontSize:13, fontWeight:700, margin:2}}>|</p><p style={{fontSize:13, fontWeight:700, margin:2}}>백엔드</p>
                 </div>

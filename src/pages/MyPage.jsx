@@ -40,7 +40,7 @@ export default function MyPage() {
     <>
       <AlarmHeader />
       {/* Introduce 상단 닉네임, 키워드, 지역 등 */}
-      <Introduce />
+      <Introduce memberInfo={member}/>
       {/* 마이페이지 데이터 넘기기 ex)<Introduce myData={myData}>*/}
       <hr
         style={{
@@ -79,7 +79,7 @@ export default function MyPage() {
       </div>
       <div>
         {/* 원하는 성별, 성별, 자신있는거 */}
-        <TalentIntroduce />
+        <TalentIntroduce memberInfo={member}/>
         {/* Intorduce랑 동일하게 myData={myData} 넣기*/}
       </div>
       <hr
@@ -90,7 +90,7 @@ export default function MyPage() {
         }}
       />
       {/* 포폴 */}
-      <DetailIntroduce />
+      <DetailIntroduce memberInfo={member}/>
       {/* Intorduce랑 동일하게 myData={myData} 넣기*/}
       <button
         className="button"

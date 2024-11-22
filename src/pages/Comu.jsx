@@ -9,6 +9,7 @@ import Comunity from '../components/Comunity';
 import ComunityFooter from '../layout/ComunityFooter';
 import ComunityHeader from '../layout/ComunityHeader';
 import ComuSort from '../components/ComuSort';
+import axios from "axios";
 
 // 커뮤니티 메인
 export default function Comu(){
@@ -17,6 +18,8 @@ export default function Comu(){
     const [ searchData, setSearch ]=useState("");
     const [ keyword, setKeyword ] = useState("전체")
     const [ sorting, setSorting ] = useState("최신순")
+    const [comuInfo, setComuInfo] = useState([]);
+    const domain = "https://api.talent-trade.site";
 
 
     const onChangeSearch=(e)=>{
@@ -32,11 +35,38 @@ export default function Comu(){
           activeButton();
         }
     };
-    const activeButton = () => {
+    const activeButton = async () => {
         console.log(searchData);
-    }
+        try {
+            const response = await axios.get(`${domain}/post/get?keyword=${searchData}`);
     
+            console.log("fetchData API Response:", response.data);
+            setComuInfo(response.data); 
+        
+    
+          } catch (error) {
+            console.error("API Error:", error);
+          }
+        };
 
+    const accessToken = localStorage.getItem("accessToken"); 
+    useEffect(() => {
+      
+        const fetchData = async () => {
+          try {
+            const response = await axios.get(`${domain}/post/get`);
+    
+            console.log("fetchData API Response:", response.data);
+            setComuInfo(response.data); 
+        
+    
+          } catch (error) {
+            console.error("API Error:", error);
+          }
+        };
+        fetchData();
+    
+      }, []);
 
 
     const [isOpen1, setIsOpen1] = useState(false);
@@ -89,9 +119,13 @@ export default function Comu(){
             </div>
             {/* 커뮤니티 게시물 */}
             <div className='comuarray'>
-                {/* {comuInfo.map((comuInfo)=>(
-                    <Comunity key={comuInfo.id} {...comuInfo}/>
-                ))} 연동한 데이터 넣으시면 됩니다. comuInfo->연동한 데이터 이름*/}
+            {Array.isArray(comuInfo.data) && comuInfo.data.length > 0 ? (
+          comuInfo.data.map((comu) => (
+            <Comunity  comu = {comu} />
+          ))
+        ) : (
+          <p>No posts available</p>
+        )}
             </div>
             <Link to="/NewComu"><button className='button'>
                     <img className="HeaderCenter" style={{width:24, height:24}}

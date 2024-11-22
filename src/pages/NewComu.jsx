@@ -4,10 +4,12 @@ import "./NewComu.css";
 import { useState } from "react";
 import ComunityHeader from "../layout/ComunityHeader";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function NewComu() {
   const [comuTitle, setComuTitle] = useState("");
   const [comuText, setComuText] = useState("");
+  const domain = "https://api.talent-trade.site";
 
   let navigate = useNavigate();
 
@@ -19,11 +21,35 @@ export default function NewComu() {
     setComuText(e.target.value);
   };
 
-  const onClickSave = (e) => {
-    console.log(comuTitle);
-    console.log(comuText);
-    navigate(-1);
+  const onClickSave = async (e) => {
+    // Prepare the post data
+    const postData = {
+      title: comuTitle,
+      content: comuText,
+      hitCount: 0,
+    };
+
+    try {
+
+      const accessToken = localStorage.getItem("accessToken");
+
+      const response = await axios.post(
+        `${domain}/post/create`,  
+        postData,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,  
+          }
+        }
+      );
+
+      console.log(response.data); 
+      navigate(-1); 
+    } catch (error) {
+      console.error("Error creating post: ", error);
+    }
   };
+
 
   return (
     <>
