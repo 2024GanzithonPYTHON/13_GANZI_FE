@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as I from "../styles/StyledIntroduce.jsx";
+import Modal from "react-modal";
+Modal.setAppElement("#root");
 
 const Introduce = () => {
   const navigate = useNavigate();
@@ -9,6 +11,11 @@ const Introduce = () => {
   const [isActive, setIsActive] = useState(false);
 
   const [activeButton, setActiveButton] = useState(null); // 상태: 어떤 버튼이 활성화되었는지 저장
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const toggleActive = (button) => {
     setActiveButton(button); // 상태를 반전시킴
@@ -529,13 +536,73 @@ const Introduce = () => {
         type="text"
         placeholder="사진 파일을 첨부해 더 멋지게 표현할 수 있어요."
       ></I.PhotoInput>
-      <I.Button>
+      <I.Button onClick={openModal}>
         <img
           id="button"
           src={`${process.env.PUBLIC_URL}/images/InsertButton.svg`}
           alt="button"
         />
       </I.Button>
+      {/* 모달 */}
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="사진 업로드"
+        style={{
+          overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-end",
+          },
+          content: {
+            width: "375px",
+            height: "200px",
+            margin: "0 auto",
+            borderRadius: "15px",
+            padding: "0",
+            border: "none",
+            textAlign: "center",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            bottom: "0",
+            marginTop: "450px",
+          },
+        }}
+      >
+        {/* 모달 내부 */}
+        <h2 style={{ fontSize: "18px", marginBottom: "20px" }}>사진 업로드</h2>
+        <button
+          style={{
+            border: "none",
+            backgroundColor: "transparent",
+            color: "#007BFF",
+            fontSize: "18px",
+            marginBottom: "10px",
+            cursor: "pointer",
+          }}
+          onClick={() => console.log("파일 버튼 클릭")}
+        >
+          파일
+        </button>
+        <hr
+          style={{ width: "100%", borderColor: "#e0e0e0", margin: "10px 0" }}
+        />
+        <button
+          style={{
+            border: "none",
+            backgroundColor: "transparent",
+            color: "#007BFF",
+            fontSize: "18px",
+            cursor: "pointer",
+          }}
+          onClick={closeModal}
+        >
+          취소
+        </button>
+      </Modal>
       <I.Text5>
         <div id="text">분야와 관련해 특별한 경험이 있나요?</div>
       </I.Text5>
