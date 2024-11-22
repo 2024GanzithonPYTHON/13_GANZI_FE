@@ -1,0 +1,25 @@
+<svg width="134" height="120" viewBox="0 0 134 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1">
+<path id="Polygon 9" d="M66.9897 60L41.009 15L92.9705 15L66.9897 60Z" fill="#F0FFF9"/>
+<path id="Polygon 10" d="M67.0093 59.9997L92.99 14.9997L118.971 59.9997L67.0093 59.9997Z" fill="#374F76"/>
+<path id="Polygon 11" d="M66.9897 60L92.9705 105H41.009L66.9897 60Z" fill="#7AB2D3"/>
+<path id="Polygon 12" d="M66.9897 59.9807L118.951 59.9807L92.9705 104.981L66.9897 59.9807Z" fill="#4A628A"/>
+<path id="Polygon 13" d="M67.0249 60.0545L41.0441 105.054L15.0634 60.0545L67.0249 60.0545Z" fill="#98D0D3"/>
+<path id="Polygon 14" d="M66.9614 59.991L14.9999 59.991L40.9807 14.991L66.9614 59.991Z" fill="#B9E5E8"/>
+<g id="Star 6" filter="url(#filter0_i_96_3131)">
+<path d="M66.4995 31L73.1227 51.384H94.5557L77.216 63.982L83.8392 84.366L66.4995 71.768L49.1598 84.366L55.783 63.982L38.4433 51.384H59.8763L66.4995 31Z" fill="white"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_i_96_3131" x="38.4434" y="31" width="56.1123" height="57.366" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_96_3131"/>
+</filter>
+</defs>
+</svg>
