@@ -9,7 +9,7 @@ import SearchHeader from "../layout/SearchHeader";
 import Footer from "../layout/Footer";
 
 // 메인 검색 페이지
-export default function Search({datas}){
+export default function Search(){
    
     const [ selectData, setSelectData ] = useState("");
     const [ selectSort, setSelectSort ] = useState("latest");
@@ -31,6 +31,14 @@ export default function Search({datas}){
       const onChangeSearch=(e)=>{
         setSearch(e.target.value);
     };
+    const activeEnter = (e) => {
+        if(e.key === "Enter") {
+          activeButton();
+        }
+    };
+    const activeButton = () => {
+        console.log(searchData);
+    }
 
 
 
@@ -49,6 +57,7 @@ export default function Search({datas}){
                     </svg>
                     <input value={searchData} 
                         onChange={onChangeSearch}
+                        onKeyDown={activeEnter}
                         className="inputsearch"/>
                 </div>
                 <hr style={{marginTop:27}}/>
@@ -75,9 +84,9 @@ export default function Search({datas}){
                     {/* 개별 프로필 출력 */}
                     
                         <div>
-                        {datas.slice(offset, offset + limit).map((datas) => (
+                        {/* {datas.slice(offset, offset + limit).map((datas) => (
                             <PersonalProfile className="item" key={datas.id} {...datas}/>
-                        ))}
+                        ))} 연동한 데이터 datas 대신 입력*/}
                         
                         </div>
                 </div>

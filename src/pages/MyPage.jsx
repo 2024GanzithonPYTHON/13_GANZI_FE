@@ -10,7 +10,7 @@ import './MyPage.css';
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 // 마이페이지
-export default function MyPage({ myData }) {
+export default function MyPage() {
     const [talents, setTalents] = useState([]);
 
   useEffect(() => {
@@ -28,7 +28,8 @@ export default function MyPage({ myData }) {
             <>
             <AlarmHeader/>
               {/* Introduce 상단 닉네임, 키워드, 지역 등 */}
-                <Introduce i={myData}/>
+                <Introduce/>
+                {/* 마이페이지 데이터 넘기기 ex)<Introduce myData={myData}>*/}
                 <hr />
                 <Link to='/MyComu' style={{ textDecoration: 'none' }}>
                 <div className="clickdiv alink">
@@ -44,11 +45,13 @@ export default function MyPage({ myData }) {
                 </div>
                 <div>
                     {/* 원하는 성별, 성별, 자신있는거 */}
-                    <TalentIntroduce i={myData} />
+                    <TalentIntroduce  />
+                    {/* Intorduce랑 동일하게 myData={myData} 넣기*/}
                 </div>
                 <hr />
                  {/* 포폴 */}
-                <DetailIntroduce i={myData}/>
+                <DetailIntroduce/>
+                {/* Intorduce랑 동일하게 myData={myData} 넣기*/}
                 <button className="button">
                     <img className="HeaderCenter" style={{width:24, height:24}}
                       id="Pencil"

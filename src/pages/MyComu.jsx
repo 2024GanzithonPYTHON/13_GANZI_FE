@@ -1,19 +1,15 @@
 import MyComunity from "../components/MyComunity"
 import MyComuHeader from "../layout/MyComuHeader"
 
-export default function MyComu({myData, comuInfo}){
-
-    const filterComuInfo = comuInfo.filter((comuInfor) => (
-        comuInfor.userName===myData.user
-    ))
+export default function MyComu(){
 
     return(
         // 내 게시글
         <div>
             <MyComuHeader/>
-            {filterComuInfo.map((comuInfor) => (
+            {/* {comuInfo.map((comuInfor) => (
                <MyComunity key={comuInfor.id} {...comuInfor}/> 
-            ))}
+            ))} 연동한 데이터 comuInfo에 넣고 map으로 하나씩 출력*/}
         </div>
     )
 }

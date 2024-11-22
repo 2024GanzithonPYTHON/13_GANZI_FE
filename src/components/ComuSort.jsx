@@ -1,6 +1,6 @@
 import './KeywordSort.css';
 // 최신순, 리뷰 수 정렬
-export default function ProfileSort({closeModal, setSelectSort, setSorting}){
+export default function ComuSort({closeModal, setSelectSort, setSorting}){
 
     const onSelectChange=(e)=>{
         console.log(e.target.value)
@@ -25,9 +25,9 @@ export default function ProfileSort({closeModal, setSelectSort, setSorting}){
                 <hr className='sortingline'/>
                 <button value={"RECENT_MEMBER"} onClick={onSelectChange} className='sortingbutton'>최신순</button>
                 <hr className='sortingline'/>
-                <button value={"REVIEW"} onClick={onSelectChange} className='sortingbutton'>리뷰 개수 순</button>
+                <button value={"HIT_COUNT"} onClick={onSelectChange} className='sortingbutton'>조회수</button>
                 <hr className='sortingline'/>
-                <button value={"SCORE"} onClick={onSelectChange} className='sortingbutton'>평점 높은 순</button>
+                <button value={"COMMENT_COUNT"} onClick={onSelectChange} className='sortingbutton'>댓글 순</button>
             </div>
     )
 }

@@ -21,80 +21,13 @@ export default function Main({datas}){
     const [limit, setLimit] = useState(6);
     const [page, setPage] = useState(1);
     const offset = (page - 1) * limit;
-        
-   
 
-    const recommendation = [{
-        id:1,
-        user: "닉네임2",
-        content: "bello",
-        wKeyword: "design",
-        gKeyword: "IT",
-        add: "backend",
-        gender: "남성",
-        preferGender: "상관없어요",
-        time: 2,
-        reviews: 2,
-        stars: 3,
-        img: "/man.png",
-      },
-      {
-        id:2,
-        user: "닉네임3",
-        content: "cello",
-        wKeyword: "IT",
-        gKeyword: "foreign",
-        add: "English",
-        gender: "여성",
-        preferGender: "상관없어요",
-        time: 3,
-        reviews: 6,
-        stars: 5,
-        img: "/female.png",
-      },
-      {
-        id:3,
-        user: "닉네임4",
-        content: "dello",
-        wKeyword: "IT",
-        gKeyword: "design",
-        add: "UI/UX",
-        gender: "남성",
-        preferGender: "여성",
-        time: 4,
-        reviews: 5,
-        stars: 4,
-        img: "/man.png",
-      },
-    ]
-
-    const [ recoData, setRecoData ] = useState(recommendation)
-    
-
+    const [ recoData, setRecoData ] = useState("추천 데이터")
     const { ID } = useParams();
 
-
-   
     const onChangeSearch=(e)=>{
         setSearch(e.target.value);
     };
-
-    
-    
-
-    useEffect(() => {
-        console.log(selectData)
-    },[selectData])
-
-    useEffect(() => {
-        console.log(selectSort)
-    },[selectSort])
-    
-
- 
-
-
-    
 
     const [isOpen1, setIsOpen1] = useState(false);
 
@@ -132,12 +65,13 @@ export default function Main({datas}){
             
                 <div className="placecenter">
                     <h2 style={{fontSize:24,fontWeight:700}}>실시간 추천</h2>
-                    <p style={{fontSize:15,fontWeight:700}}>{datas[1].user}님의 관심사를 잘 알고 있는 분이에요.</p>
+                    <p style={{fontSize:15,fontWeight:700}}>"닉네임"님의 관심사를 잘 알고 있는 분이에요.</p>
+                    {/* {연동 데이터}님의 관심사를 잘 알고 있는 분이에요. */}
                     <div className="recocenter" > 
-                    {recoData.map((recodata)=>(
+                    {/* {recoData.map((recodata)=>(
                         <RecomendData  key={recodata.id} {...recodata}/>
                     ))
-                    }
+                    }  추천 데이터 연동 받아온거 뿌리기*/}
                     </div>
                 </div>
                 <hr />
@@ -174,9 +108,9 @@ export default function Main({datas}){
                 <hr style={{borderColor: "white"}}/>
                 {/* 개인프로필 출력 */}
                 <div className="media">
-                    {datas.slice(offset, offset + limit).map((datas) => (
+                    {/* {datas.slice(offset, offset + limit).map((datas) => (
                         <PersonalProfile className="item" key={datas.id} {...datas}/>
-                    ))}
+                    ))} 연동한 데이터 출력 slice는 데이터 6개씩 끊어서 출력할 수 있도록 */}
                 </div>
                 <NavBar/>
             </div>

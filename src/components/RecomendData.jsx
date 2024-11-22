@@ -1,29 +1,38 @@
 import { Link } from "react-router-dom"
+import { useState,useEffect } from "react";
 
 export default function RecomendData({
-    id,
-    user,
-    content,
-    wKeyword,
-    gKeyword,
-    add,
-    gender,
-    preferGender,
-    time,
-    reviews,
-    stars,
-    img,
+    // memberId,
+	// nickname,
+	// gender,
+	// talent,
+	// comment,
 }){
+     const [genderImg, setGenderImg] = useState("/man.png");
+
+    // const genderImage = () => {
+    //   if (gender === "MALE") {
+    //     setGenderImg("/man.png");
+    //   } else {
+    //     setGenderImg("/female.png");
+    //   }
+    // };
+  
+    // useEffect(() => {
+    //   genderImage();
+    // }, [gender]);
+
+
     return(
         <>
-        <Link to={`/Profilepage/${id}`} key={id} style={{ textDecoration: "none", color:"black"}}>
+        {/* <Link to={`/Profilepage/${memberId}`} key={memberId} style={{ textDecoration: "none", color:"black"}}> */}
 
         <div className='recobox alink'>
-            <img src={img} alt="사진"/>
-            <p className='boldname textcenter'>{user}</p>
-            <p className='textcenter'>{add}</p>
+            <img src={genderImg} alt="사진"/>
+            <p className='boldname textcenter'>"nickname"</p>
+            <p className='textcenter'>"comment"</p>
         </div>
-        </Link>
+        {/* </Link> */}
         
         </>
     )

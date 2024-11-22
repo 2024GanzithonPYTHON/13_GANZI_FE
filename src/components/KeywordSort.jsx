@@ -28,21 +28,21 @@ export default function KeywordSort({closeModal, setSelectData, setKeyword}){
                 <hr className='sortingline'/>
                 <button value={"IT"} onClick={onSelectChange} className='sortingbutton'>IT</button>
                 <hr className='sortingline'/>
-                <button value={"economy"} onClick={onSelectChange} className='sortingbutton'>경제경영</button>
+                <button value={"BUSINESS"} onClick={onSelectChange} className='sortingbutton'>경제경영</button>
                 <hr className='sortingline'/>
-                <button value={"foreign"} onClick={onSelectChange} className='sortingbutton'>외국어</button>
+                <button value={"FOREIGN"} onClick={onSelectChange} className='sortingbutton'>외국어</button>
                 <hr className='sortingline'/>
-                <button value={"design"} onClick={onSelectChange} className='sortingbutton'>디자인</button>
+                <button value={"DESIGN"} onClick={onSelectChange} className='sortingbutton'>디자인</button>
                 <hr className='sortingline'/>
-                <button value={"music"} onClick={onSelectChange} className='sortingbutton'>음악</button>
+                <button value={"MUSIC"} onClick={onSelectChange} className='sortingbutton'>음악</button>
                 <hr className='sortingline'/>
-                <button value={"dance"} onClick={onSelectChange} className='sortingbutton'>댄스</button>
+                <button value={"DANCE"} onClick={onSelectChange} className='sortingbutton'>댄스</button>
                 <hr className='sortingline'/>
-                <button value={"game"} onClick={onSelectChange} className='sortingbutton'>게임</button>
+                <button value={"GAME"} onClick={onSelectChange} className='sortingbutton'>게임</button>
                 <hr className='sortingline'/>
-                <button value={"fashion"} onClick={onSelectChange} className='sortingbutton'>패션</button>
+                <button value={"FASHION"} onClick={onSelectChange} className='sortingbutton'>패션</button>
                 <hr className='sortingline'/>
-                <button value={"others"} onClick={onSelectChange} className='sortingbutton'>기타</button>
+                <button value={"ETC"} onClick={onSelectChange} className='sortingbutton'>기타</button>
             </div>
     )
 }

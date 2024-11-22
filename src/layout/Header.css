@@ -63,3 +63,10 @@
     font-weight: 700 !important;
     
   }
+  .HeaderDiv{
+    position: fixed;
+    top:30px;
+    left: 0;
+    width: 375px;
+    height: 110px;
+  }

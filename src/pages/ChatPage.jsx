@@ -7,22 +7,9 @@ import ChatingHeader from "../layout/ChatingHeader";
 
 
 //채팅
-export default function ChatPage({datas, myData, chatInfo}){
-    const [ChatList, setChatList] = useState(chatInfo)
+export default function ChatPage(){
     const [ChatText, setChatText] = useState('')
     const { ID } = useParams();
-
-    
-    
-
-    const i = datas.filter((data)=>
-        data.id==ID
-    ); 
- 
-
-    const fillterChat = chatInfo.filter((chat)=>
-        chat.chatId==ID
-    ); 
 
     const onChageChatText = (e) => (
         setChatText(e.target.value)
@@ -33,22 +20,18 @@ export default function ChatPage({datas, myData, chatInfo}){
     }
 
 
-    const [isOpen3, setIsOpen3] = useState(false);
-
-    const openModal3 = () => setIsOpen3(true);
-    const closeModal3 = () => setIsOpen3(false);
-
 
     return(
         <div>
-            <ChatingHeader chatInfo={chatInfo}/>
+            <ChatingHeader />
+            {/* chatInfo={chatInfo} 이걸 ChatingHeader에 넣어야해요 <ChatingHeader 연동으로 받아온 데이터={연동으로 받아온 데이터}*/}
             {/* 메세지 출력 */}
             <div>
-                {fillterChat.map((chat) => (
+                {/* 메세지 개별 출력 */}
+                {/* {fillterChat.map((chat) => (
                     <ViewMessage myData={myData} i={i[0]} key={chat.chatId} {...chat}/>
-                ))}
+                ))} */}
             </div>
-            {/* input 수정해야함 */}
             <SentInput value={ChatText} onChange={onChageChatText} onClick={onClickSend}/>
             
         </div>
