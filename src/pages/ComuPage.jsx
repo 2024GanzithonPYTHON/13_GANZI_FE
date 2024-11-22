@@ -53,7 +53,6 @@ export default function ComuPage(){
             <div>
                 {/* {fillterComment.map((commentInfo) => (
                     <Comment key={commentInfo.id} {...commentInfo}/>
-            
                 ))} */}
             </div>
 

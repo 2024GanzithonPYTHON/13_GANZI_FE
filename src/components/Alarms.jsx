@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import './Alarm.css';
 
 export default function Alarms({
+    onClickAlarm,
+    AlarmClick,
     // notificationId,
     // type,
     // fromMemberNickname,
@@ -39,7 +41,7 @@ export default function Alarms({
     return(
         <div>
             {/* <Link to={link} key={contentId} style={{ textDecoration: 'none', color:"black" }}> */}
-            <div className="placecenter">
+            <div onClick={onClickAlarm} className="placecenter" style={{backgroundColor: AlarmClick ? "#ffffff" : "#D9D9D9"}}>
                 <p style={{fontSize:13, fontWeight:"bold"}}>{alarmMessage}</p>
                 <p style={{fontSize:13}}>"content"</p>
             </div>

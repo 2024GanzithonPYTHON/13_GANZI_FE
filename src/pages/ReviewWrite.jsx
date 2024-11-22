@@ -16,13 +16,14 @@ export default function ReviewWrite(){
     const onChangeReviewText = (e) =>{
         setReviewText(e.target.value);
     }
+    
     const onClickReviewStoring = () =>{
         if(reviewText===""){
             textareaRef.current.focus();
             return;
         }
-        // reviewCreate(reviewText, ID, selectedRating);
-        setReviewText("");
+        console.log(reviewText)
+        console.log(selectedRating)
     }
     
 
