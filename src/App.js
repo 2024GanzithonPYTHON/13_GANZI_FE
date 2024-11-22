@@ -9,6 +9,7 @@ import Profiles from './pages/Profiles';
 
 import Header from './layout/Header';
 import Footer from './layout/Footer';
+import ChatComponent from "./pages/chat/ChatComponent";
 
 
 import './App.css';
@@ -139,6 +140,7 @@ function App() {
         <Route path='/NewComu' element={<NewComu datas={Datas}/>}/>
         <Route path='/Search' element={<Search datas={Datas} myWData={myWdata} myGData={myGdata}/>}/>
         <Route path='/Profilepage/:ID' element={<Profiles datas={Datas}/>}/>
+        <Route path='/ChatComponent' element={<ChatComponent/>}/>
       </Routes>
       </bb>
       <Footer/>
