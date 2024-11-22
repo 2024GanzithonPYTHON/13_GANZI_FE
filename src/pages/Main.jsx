@@ -1,9 +1,7 @@
-import PersonalProfile from "../components/PersonalProfile"
-import RecomendData from "../components/RecomendData";
-import './Main.css';
-import { useState,useEffect } from "react";
+import "./Main.css";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 import KeywordSort from "../components/KeywordSort";
 import ProfileSort from "../components/ProfileSort";
 import NavBar from "../components/NavBar";
@@ -11,6 +9,7 @@ import HomeFooter from "../layout/HomeFooter";
 import HomeHeader from "../layout/HomeHeader";
 
 // 메인페이지
+
 export default function Main({datas}){
     const [ selectData, setSelectData ] = useState("");
     const [ selectSort, setSelectSort ] = useState("latest");
@@ -113,9 +112,46 @@ export default function Main({datas}){
                     ))} 연동한 데이터 출력 slice는 데이터 6개씩 끊어서 출력할 수 있도록 */}
                 </div>
                 <NavBar/>
+
             </div>
-            <HomeFooter/>
+          </Modal>
+          {/* select대신 최신순, 리뷰 많은 순.... */}
+          <div className="selectbox" onClick={openModal1}>
+            <p>{keyword}</p>
+            <img
+              style={{ width: 10, height: 10, marginTop: 14, marginLeft: 10 }}
+              src="./underarrow.png"
+              alt="아래 화살표"
+            />
+          </div>
+          <Modal
+            style={{ zIndex: 1100 }}
+            isOpen={isOpen1}
+            onRequestClose={closeModal1}
+            contentLabel="Example Modal"
+            overlayClassName="overlay"
+            className="modal"
+          >
+            <div id="modal-scrollable" className="modal-scrollable">
+              <KeywordSort
+                style={{ zIndex: 1100 }}
+                closeModal={closeModal1}
+                setSelectData={setSelectData}
+                setKeyword={setKeyword}
+              />
+            </div>
+          </Modal>
         </div>
-        
-    )
+        <hr style={{ borderColor: "white" }} />
+        {/* 개인프로필 출력 */}
+        <div className="media">
+          {/* {datas.slice(offset, offset + limit).map((datas) => (
+                        <PersonalProfile className="item" key={datas.id} {...datas}/>
+                    ))} */}
+        </div>
+        <NavBar />
+      </div>
+      <HomeFooter />
+    </div>
+  );
 }

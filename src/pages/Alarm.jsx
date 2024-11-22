@@ -1,3 +1,4 @@
+
 import Alarms from "../components/Alarms"
 import AlarmHeader from "../layout/AlarmHeader"
 import { useState } from "react";
@@ -20,9 +21,9 @@ export default function Alarm(){
         type: "REVIEW",
         fromMemberNickname: "닉네임1",
         content:"내용",
+
     },
-  
-]
+  ];
 
 
 // 알람 데이터 받아오면 알람 데이터 자리에 대체 하면 됩니다
@@ -41,3 +42,5 @@ const onClickAlarm = () =>{
         </div>
     )
 }
+
+  

@@ -1,4 +1,10 @@
+
 import React, { useEffect } from 'react';
+import Splash from "./pages/Splash";
+import Login from "./pages/Login";
+import CreateAccount from "./pages/CreateAccount";
+import Welcome from "./pages/Welcome";
+import Introduce from "./pages/Introduce";
 import Main from './pages/Main';
 import Chats from './pages/Chats';
 import Comu from './pages/Comu';
@@ -22,13 +28,16 @@ import { useState, useRef } from 'react';
 
 
 function App() {
- 
+
   return (
     <BrowserRouter>
-    <div className='app'>
-    <Header/>
-      <bb className='content'>
       <Routes>
+
+        <Route path="/Splash" element={<Splash />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/CreateAccount" element={<CreateAccount />} />
+        <Route path="/Welcome" element={<Welcome />} />
+        <Route path="/Introduce" element={<Introduce />} />
         <Route path='/Main' element={<Main />}/>
         <Route path='/Chats' element={<Chats/>}/>
         <Route path='/MyPage' element={<MyPage/>}/>
@@ -44,10 +53,8 @@ function App() {
         <Route path='/ComuPage/:ID' element={<ComuPage/>}/>
         <Route path='/MyComu' element={<MyComu/>}/>
         <Route path='/Alarm' element={<Alarm/>}/>
+
       </Routes>
-      </bb>
-      
-      </div>
     </BrowserRouter>
   );
 }
