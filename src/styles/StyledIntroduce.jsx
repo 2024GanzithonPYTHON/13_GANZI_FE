@@ -9,6 +9,8 @@ export const Container = styled.div`
   background-color: #fff;
   margin: 0 auto;
   position: relative;
+  margin-left: 550px;
+  margin-top: -140px;
 `;
 
 export const Text = styled.div`

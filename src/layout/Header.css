@@ -1,72 +1,67 @@
-
-
-  .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 140px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    z-index: 1000;
-    
-  }
-  .header>div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  .HeaderDiv{
-    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    z-index: 1000;
-  }
-  .HeaderCenter{
-    margin: auto;
-    width: 60px;
-  }
-  .PageHeader{
-    position: fixed;
-    top:30px;
-    left: 0;
-    width: 375px;
-    height: 110px;
-    background-color: #ffffff;
-    z-index: 1000;
-  }
-  .talentTradeButton{
-    border: none;
-    border-radius: 10px;
-    color: #ffffff;
-  }
-  .modalFlex{
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
-  }
-  .TtCheckButton{
-    width: 80%;
-    margin: auto;
-    background-color: #7AB2D3;
-    color: #ffffff;
-    border: none;
-    height: 44px;
-    border-radius: 10px;
-  }
-  .HeaderName{
-    font-size: 20px !important;
-    font-weight: 700 !important;
-    
-  }
-  .HeaderDiv{
-    position: fixed;
-    top:30px;
-    left: 0;
-    width: 375px;
-    height: 110px;
-  }
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  z-index: 1000;
+}
+.header > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.HeaderDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1000;
+}
+.HeaderCenter {
+  margin: auto;
+  width: 60px;
+}
+.PageHeader {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  width: 375px;
+  height: 110px;
+  background-color: #ffffff;
+  z-index: 1000;
+}
+.talentTradeButton {
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+}
+.modalFlex {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+.TtCheckButton {
+  width: 80%;
+  margin: auto;
+  background-color: #7ab2d3;
+  color: #ffffff;
+  border: none;
+  height: 44px;
+  border-radius: 10px;
+}
+.HeaderName {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+.HeaderDiv {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  width: 375px;
+  height: 110px;
+}
