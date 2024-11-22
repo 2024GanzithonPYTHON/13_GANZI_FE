@@ -1,48 +1,45 @@
-.TalentIntroduce{
-    height: 230px;
-    width: 85%;
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    padding-top: 5px;
+.TalentIntroduce {
+  height: 230px;
+  width: 317px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  padding-top: 5px;
 
-    background: rgba(122, 178, 211, 0.3);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
+  background: rgba(122, 178, 211, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+.highlightbox {
+  box-sizing: border-box;
+  gap: 9.47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 24px;
+  margin-left: 5px;
+  margin-right: 5px;
 
-
+  font-weight: 600;
+  background: rgba(122, 178, 211, 0.3);
+  box-shadow: 0px 0.946708px 10.3191px rgba(0, 0, 0, 0.25);
+  border-radius: 11.3605px;
+  text-align: center;
 }
-.highlightbox{
-    box-sizing: border-box;
-    gap: 9.47px;
-    display: flex;
-    align-items: center;
-   justify-content: center;
-    width: 70px;
-    height: 24px;
-    margin-left: 5px;
-    margin-right: 5px;
-
-    font-weight: 600;
-    background: rgba(122, 178, 211, 0.3);
-    box-shadow: 0px 0.946708px 10.3191px rgba(0, 0, 0, 0.25);
-    border-radius: 11.3605px;
-    text-align: center;
-
+.TalentIntroduce > div > p {
+  line-height: 35px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-size: 13px;
 }
-.TalentIntroduce>div>p{
-    line-height: 35px;
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-size: 13px;
+.TalentIntroduce > div {
+  margin-left: 20px;
 }
-.TalentIntroduce>div{
-    margin-left: 20px;
+.flexintro {
+  display: flex;
+  align-items: center;
 }
-.flexintro{
-    display: flex;
-    align-items: center;
-}
-.addmargin{
-    margin-left: 33px;
+.addmargin {
+  margin-left: 33px;
 }

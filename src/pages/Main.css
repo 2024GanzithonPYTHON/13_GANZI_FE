@@ -1,47 +1,37 @@
-.input{
-    
+.input {
   position: fixed;
   top: 150px;
-  
+
   width: 100%;
   padding-top: 40px;
   height: 90px;
   background-color: white;
 }
-.profilesarray{
-  
+.profilesarray {
   margin-top: 90px;
-
 }
-.ss{
+.ss {
+  box-sizing: border-box;
 
-box-sizing: border-box;
-
-background: #D9D9D9;
-box-shadow: 0px 2.25958px 2.25958px rgba(0, 0, 0, 0.25);
-border-radius: 5.64895px;
-
+  background: #d9d9d9;
+  box-shadow: 0px 2.25958px 2.25958px rgba(0, 0, 0, 0.25);
+  border-radius: 5.64895px;
 }
-.selectbox{
+.selectbox {
+  display: flex;
 
+  width: 70px;
+  height: auto;
 
-display: flex;
+  background: #f1f1f1;
+  border-radius: 11.3605px;
+  font-size: 1cap;
 
-width: 70px;
-height: auto;
-
-
-background: #F1F1F1;
-border-radius: 11.3605px;
-font-size:1cap;
-
-text-align: center;
-justify-content: center;
-margin: 5px;
-
-
+  text-align: center;
+  justify-content: center;
+  margin: 5px;
 }
-.placecenter{
+.placecenter {
   margin: auto;
   width: 85%;
 }
@@ -61,14 +51,12 @@ margin: 5px;
   background-color: white;
   position: absolute;
   bottom: 0%;
-  width: 100%;
-  max-height: 30%;
+  width: 375px;
+  height: 333;
   overflow-y: auto;
   margin-bottom: 0;
-  padding-bottom: 40px;
   border-radius: 20px;
   scrollbar-width: none;
-
 }
 
 #modal-scrollable {
@@ -83,12 +71,10 @@ margin: 5px;
   border: 2px solid transparent;
   border-radius: 5.64895px;
   outline: none;
-  background: #D9D9D9;
+  background: #d9d9d9;
 
   color: #0d0c22;
   padding-left: 2.5rem;
-
-
 }
 
 .input::placeholder {
@@ -100,70 +86,64 @@ margin: 5px;
   width: 20px;
   margin: 12px;
 }
-.inputdiv{
+.inputdiv {
   width: 80%;
   margin: auto;
   border: 2px solid transparent;
   border-radius: 5.64895px;
   outline: none;
-  background: #D9D9D9;
+  background: #d9d9d9;
 
   color: #0d0c22;
   box-shadow: 0px 2.25958px 2.25958px rgba(0, 0, 0, 0.25);
 }
 
-
-
-
-.media{
+.media {
   width: 350px;
   margin: auto;
-
 }
-.flex{
+.flex {
   display: flex;
   flex-direction: row-reverse;
 }
-.nonesearch{
+.nonesearch {
   margin: auto;
   width: 150px;
 
-  margin-top: 35vh; 
+  margin-top: 35vh;
   margin-bottom: 30vh;
 }
 
-.recomendbox{
-margin-bottom: 37px;
+.recomendbox {
+  margin-bottom: 37px;
 }
-.recocenter{
-display: flex;
-justify-content: center;
-align-items: center;
+.recocenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.talentmodal{
+.talentmodal {
   background-color: white;
   position: absolute;
   width: 250px;
   height: 427px;
   overflow-y: auto;
   scrollbar-width: none;
-
 }
 
 .talentoverlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.alink{
+.alink {
   text-decoration: none;
   color: #000000;
 }
