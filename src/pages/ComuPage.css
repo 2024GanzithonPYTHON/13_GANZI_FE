@@ -1,0 +1,17 @@
+.glgl{
+    display: flex;
+    flex-direction: row;
+    
+}
+.jljl{
+    display: flex;
+    flex-direction: column;
+}
+.boldsize{
+    font-size: 13px;
+    font-weight: bolder;
+}
+.marginbox{
+    width: 85%;
+    margin: auto;
+}
