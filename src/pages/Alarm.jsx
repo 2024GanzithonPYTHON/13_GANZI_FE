@@ -37,8 +37,9 @@ export default function Alarm() {
             type={alarm.type}
             fromMemberNickname={alarm.fromMemberNickname}
             content={alarm.content}
+            receivedAt={alarm.receivedAt}
+            checked={alarm.checked}
             onClickAlarm={onClickAlarm}
-            AlarmCheck={AlarmCheck}
           />
         ))
       ) : (
