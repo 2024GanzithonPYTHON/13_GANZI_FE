@@ -1,4 +1,4 @@
-import { useParams,useLocation  } from "react-router-dom";
+import { useParams,useLocation,useSearchParams   } from "react-router-dom";
 import { useState,useEffect,useRef } from "react";
 import ViewMessage from "../components/Message/ViewMessage";
 import SentInput from "../components/SentInput";
@@ -17,13 +17,18 @@ export default function ChatPage(){
     const [connected, setConnected] = useState(false); // WebSocket 연결 상태
 
     const domain = "https://api.talent-trade.site";
-
-    const location = useLocation(); // Use useLocation to access state
-    const { oppId, fromId } = location.state || {}; // Destructure from location.state
+    const [searchParams] = useSearchParams();
+   
+    const oppId = searchParams.get("oppId");
+    const fromId = searchParams.get("fromId");
+    // const location = useLocation(); // Use useLocation to access state
+    // const { oppId, fromId } = location.state || {}; // Destructure from location.state
   // state가 존재하지 않으면 기본값을 설정하거나 경고 메시지를 출력
     if (!oppId || !fromId) {
         console.warn("oppId 또는 fromId가 전달되지 않았습니다.");
     }
+
+    console.log("Received ID:", ID);
     console.log("Received oppId:", oppId);
     console.log("Received fromId:", fromId);//내 아이디
     const accessToken = localStorage.getItem("accessToken"); 
@@ -56,13 +61,13 @@ export default function ChatPage(){
         }
 
         const messagePayload = {
-            chatRoomId: ID, // Chatroom ID
+            ID, // Chatroom ID
             fromMemberId: fromId, // Sender ID (example)
             toMemberId: oppId, // Receiver ID (example)
             content: ChatText, // Message content
             createdAt: new Date().toISOString(), // Timestamp
         };
-
+        console.log("Sending message data:", messagePayload);
         clientRef.current.publish({
             destination: `/app/chatrooms/${ID}/send`,
             body: JSON.stringify(messagePayload),
@@ -119,23 +124,23 @@ export default function ChatPage(){
                 console.log("WebSocket deactivated");
             }
         };
-    }, [ID, domain, accessToken]);
+    }, [ accessToken]);
 
     return(
         <div>
             <ChatingHeader chatInfo ={chatInfo}/>
             {/* 메세지 출력 */}
             <div>
-            {chatInfo.map((chat, index) => (
-                <ViewMessage
-                    key={chat.roomId} // 채팅 ID가 없으면 index 사용
-                    myData={{ id: fromId }} // 현재 사용자 ID
-                    i={index} // 인덱스 전달
-                    chatId={chat.roomId} // 메시지 ID
-                    sentid={fromId} // 발신자 ID
-                    text={chat.content} // 메시지 내용
-                />
-            ))}
+           {(Array.isArray(chatInfo) ? chatInfo : []).map((chat, index) => (
+        <ViewMessage
+            key={chat.chatRoomId} // 채팅방 ID 사용
+            myData={{ id: fromId }} // 현재 사용자 ID
+            i={index} // 인덱스 전달
+            chatId={chat.chatRoomId} // 메시지 ID
+            sentid={fromId} // 발신자 ID
+            text={chat.content} // 메시지 내용
+        />
+    ))}
                 {/* 메세지 개별 출력 */}
                 {/* {fillterChat.map((chat) => (
                     <ViewMessage myData={myData} i={i[0]} key={chat.chatId} {...chat}/>

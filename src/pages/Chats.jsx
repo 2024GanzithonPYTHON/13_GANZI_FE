@@ -10,6 +10,7 @@ export default function Chats(){
     const domain = "https://api.talent-trade.site";
     const [chatInfo, setChatInfo] = useState([]);
     const accessToken = localStorage.getItem("accessToken"); 
+ 
     useEffect(() => {
       
         const fetchData = async () => {

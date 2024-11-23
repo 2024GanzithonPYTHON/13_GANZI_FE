@@ -51,22 +51,33 @@ export default function Comu(){
 
     const accessToken = localStorage.getItem("accessToken"); 
     useEffect(() => {
-      
         const fetchData = async () => {
-          try {
-            const response = await axios.get(`${domain}/post/get`);
-    
-            console.log("fetchData API Response:", response.data);
-            setComuInfo(response.data); 
-        
-    
-          } catch (error) {
-            console.error("API Error:", error);
-          }
+            try {
+                let sortParam = "";  // Default to empty string, no sorting
+                if (sorting === "조회수") {
+                    sortParam = "HIT_COUNT";  // Sort by views
+                } else if (sorting === "최신순") {
+                    sortParam = "LATEST";  // Sort by latest
+                } else if (sorting === "댓글 순") {
+                    sortParam = "COMMENT_COUNT";  // Sort by comment count
+                }
+
+                const response = await axios.get(`${domain}/post/get`, {
+                    params: {
+                        talent: keyword === "전체" ? undefined : keyword, // Only send talent if it's not "전체"
+                        sortBy: sortParam,  // Send the dynamic sorting parameter
+                    },
+                });
+
+                console.log("fetchData API Response:", response.data);
+                setComuInfo(response.data);
+            } catch (error) {
+                console.error("API Error:", error);
+            }
         };
+
         fetchData();
-    
-      }, []);
+    }, [keyword, sorting]); 
 
 
     const [isOpen1, setIsOpen1] = useState(false);

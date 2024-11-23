@@ -59,6 +59,8 @@ const Profiles = () => {
             );
             console.log('채팅방 생성:', response.data);
             const roomId = response.data.data.roomId;
+
+            localStorage.getItem("fromMemberId",response.data.data.fromMemberId);
             console.log("Room ID:", roomId);
           
             if (roomId && !isNaN(Number(roomId))) {

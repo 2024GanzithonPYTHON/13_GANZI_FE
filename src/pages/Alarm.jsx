@@ -1,32 +1,27 @@
 import Alarms from "../components/Alarms";
 import AlarmHeader from "../layout/AlarmHeader";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import axios from "axios";
 
 export default function Alarm() {
-  const alarmData = [
-    {
-      notificationId: 0,
-      type: "MESSAGE",
-      fromMemberNickname: "닉네임4",
-      content: "내용",
-    },
-    {
-      notificationId: 1,
-      type: "COMMENT",
-      fromMemberNickname: "닉네임3",
-      content: "내용",
-    },
-    {
-      notificationId: 3,
-      type: "REVIEW",
-      fromMemberNickname: "닉네임1",
-      content: "내용",
-    },
-  ];
-
-  // 알람 데이터 받아오면 알람 데이터 자리에 대체 하면 됩니다
-
+  const [alarmData, setAlarmData] = useState([]);  // Store fetched notifications
   const [AlarmCheck, setAlarmCheck] = useState(false);
+
+  const fetchNotifications = async () => {
+    try {
+      const response = await axios.get("https://api.talent-trade.site/notification/get", {
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,  // Assuming you store JWT token in localStorage
+        },
+      });
+      setAlarmData(response.data.data.notifications);  // Assuming response contains the notifications in data.data
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
+    }
+  };
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
 
   const onClickAlarm = () => {
     setAlarmCheck(true);
@@ -34,14 +29,21 @@ export default function Alarm() {
   return (
     <div>
       <AlarmHeader />
-      {alarmData.map((alarm) => (
-        <Alarms
-          onClickAlarm={onClickAlarm}
-          AlarmCheck={AlarmCheck}
-          key={alarm.notificationId}
-          {...alarm}
-        />
-      ))}
+      {Array.isArray(alarmData) ? (
+        alarmData.map((alarm) => (
+          <Alarms
+            key={alarm.notificationId}
+            notificationId={alarm.notificationId}
+            type={alarm.type}
+            fromMemberNickname={alarm.fromMemberNickname}
+            content={alarm.content}
+            onClickAlarm={onClickAlarm}
+            AlarmCheck={AlarmCheck}
+          />
+        ))
+      ) : (
+        <p>No notifications available</p>  // Display a message if alarmData is not an array
+      )}
     </div>
   );
 }

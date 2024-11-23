@@ -1,12 +1,29 @@
-import { useNavigate } from "react-router-dom"
+import { useParams,useNavigate } from "react-router-dom"
 import Modal from 'react-modal';
 import { useState } from "react";
+import axios from 'axios';
 
 export default function ChatingHeader({chatInfo}){
     const [ TtCompleted, setTtCompleted ] =useState(false);
+    const domain = "https://api.talent-trade.site";
 
-    const onClickTtButton = () =>{
+    const { ID } = useParams();
+    const onClickTtButton = async () =>{
+        console.log("채팅방 아이디:"+ID);
         setTtCompleted(true)
+        const accessToken = localStorage.getItem("accessToken");
+
+        const response = await axios.patch(
+            `${domain}/chatrooms/${ID}/complete`,
+            {},  // No body is needed for this request, since it's just completing the chat room
+            {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                }
+            }
+        );
+
+        console.log("Chat room completed:", response.data);
         openModal3()
     }
 
@@ -15,7 +32,10 @@ export default function ChatingHeader({chatInfo}){
     const [isOpen3, setIsOpen3] = useState(false);
 
     const openModal3 = () => setIsOpen3(true);
-    const closeModal3 = () => setIsOpen3(false);
+    const closeModal3 = () => {
+        setIsOpen3(false); // Close the modal
+        navigate('/Main'); // Navigate to the main page (adjust the route as necessary)
+    };
     return(
         <div className="PageHeader">
         <div className="HeaderDiv">

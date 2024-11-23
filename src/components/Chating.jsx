@@ -1,27 +1,41 @@
 import { Link } from "react-router-dom"
 import './Chating.css'
-
+import React, { useState, useEffect } from "react";
 //채팅방 리스트
 export default function Chating({chatInfor}){
 
-    console.log(chatInfor);
-    console.log(chatInfor.toMemberId);
-    console.log(chatInfor.fromMemberId);
+    console.log("ccccc>>>>"+chatInfor);
+    console.log("ccccc>>>>"+chatInfor.toMemberId);
+    console.log("ccccc>>>>"+chatInfor.fromMemberId);
 
+    const [fromMemberId, setFromMemberId] = useState();
+    const [toMemberId, setToMemberId] = useState();
+
+    useEffect(() => {
+        setFromMemberId(chatInfor.fromMemberId);
+        setToMemberId(chatInfor.toMemberId);
+        console.log("ddd"+toMemberId);
+        console.log("dddd"+fromMemberId);
+    }, [chatInfor]);
     return(
         <>
-         <Link
+         {/* <Link
                 to={{
                     pathname: `/ChatPage/${chatInfor.roomId}`, // Path to the ChatPage
                     state: { 
-                        oppId: chatInfor.toMemberId,
-                        fromId:chatInfor.fromMemberId,  
+                        oppId: toMemberId,
+                        fromId:fromMemberId,  
                     }, // Pass the chatInfor object as state
                 }}
                 key={chatInfor.roomId}
                 style={{ textDecoration: 'none' }}
-            > 
-            {console.log("state 전달:", chatInfor.toMemberId, chatInfor.fromMemberId)} 
+            >  */}
+            <Link
+    to={`/ChatPage/${chatInfor.roomId}?oppId=${toMemberId}&fromId=${fromMemberId}`}
+    key={chatInfor.roomId}
+    style={{ textDecoration: "none" }}
+>
+            {console.log("state 전달:", toMemberId, fromMemberId)} 
        
         <div className="glgl Comun alink">
             

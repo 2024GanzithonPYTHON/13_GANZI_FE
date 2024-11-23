@@ -50,6 +50,10 @@ export default function Main({ datas }) {
           headers: {
             Authorization: `Bearer ${accessToken}`, 
           },
+          params: {
+            talent: keyword === "전체" ? undefined : keyword, // Only send talent if it's not "전체"
+            sortBy: sorting === "최신순" ? undefined : sorting, // Only send sortBy if it's not default
+          },
         });
 
         console.log("fetchData API Response:", response.data);
@@ -80,7 +84,9 @@ export default function Main({ datas }) {
 
     fetchData();
     fetchRecommendationsData();
-  }, []);
+  }, [page, keyword, sorting]);
+
+  
 
 
   return (
@@ -127,7 +133,20 @@ export default function Main({ datas }) {
             "닉네임"님의 관심사를 잘 알고 있는 분이에요.
           </p>
 
-          <div className="recocenter">{/* 추천 데이터 연동 */}</div>
+          <div className="recocenter">
+          {recommendations.length > 0 ? (
+          recommendations.map((member) => (
+            <div key={member.memberId} className="reco-item">
+              <h3>{member.nickname}</h3>
+              <p>성별: {member.gender === 'FEMALE' ? '여성' : '남성'}</p>
+              <p>전문분야: {member.talent}</p>
+              <p>코멘트: {member.comment || '코멘트 없음'}</p>
+            </div>
+          ))
+        ) : (
+          <p>추천된 멤버가 없습니다.</p>
+        )}
+          </div>
         </div>
         <hr style={{ marginLeft: "584px", width: "338px", height: "1px" }} />
 
