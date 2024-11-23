@@ -39,6 +39,7 @@ export default function Chats(){
         {/* 채팅 목록 볼 수 있는 페이지라서 map 써서 연동 받은 데이터 하나씩 뿌려주시면 됩니당. key에 id 값 넣고 뒤에 {...받아온 데이터 이름} */}
             
            {/* chatInfo가 있을 때만 채팅 목록을 출력 */}
+           <div style={{width:375, marginLeft:580, marginTop:150}}>
         {chatInfo && chatInfo.length > 0 ? (
             chatInfo.map((chatInfor) => (
                 <Chating key={chatInfor.roomId} chatInfor={chatInfor} />
@@ -46,7 +47,7 @@ export default function Chats(){
         ) : (
             <p>채팅방이 없습니다.</p> // chatInfo가 없을 때 출력할 메시지
         )}
-
+            </div>
             <ChatFooter/>
         </>
     )

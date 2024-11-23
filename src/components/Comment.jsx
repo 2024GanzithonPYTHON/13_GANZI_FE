@@ -8,13 +8,13 @@ export default function Comment({
                 <div className="glgl">
                 {commentInfo.gender === "FEMALE" ? (
           <img
-            src="/images/PersonWoman.svg"
+            src={`${process.env.PUBLIC_URL}/images/PersonWoman.svg`}
             alt="Female Avatar"
             style={{width:45, height:45, marginRight:10}}
           />
         ) : (
           <img
-            src="/images/PersonMan.svg"
+            src={`${process.env.PUBLIC_URL}/images/PersonMan.svg`}
             alt="Male Avatar"
             style={{width:45, height:45, marginRight:10}}
           />

@@ -12,7 +12,7 @@ const Reviews=()=>{
     const { ID } = useParams();
 
     return(
-        <>
+        <div className="pageSetting">
         {/* Introduce 상단 닉네임, 키워드, 지역 등 */}
         <Introduce/> 
         {/* 연동으로 받은 데이터 Introduce에 보내기 <Intorduce 데이터 이름={데이터 이름}/> */}
@@ -44,7 +44,7 @@ const Reviews=()=>{
                   /></button>
         </Link>
         <Footer/>
-        </>
+        </div>
         
     )
 }

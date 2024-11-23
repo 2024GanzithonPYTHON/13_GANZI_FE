@@ -773,6 +773,7 @@ const handleFileChange = (e) => {
             width: "375px",
             height: "200px",
             margin: "0 auto",
+            marginLeft: "515px",
             borderRadius: "15px",
             padding: "0",
             border: "none",

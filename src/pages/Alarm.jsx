@@ -27,7 +27,7 @@ export default function Alarm() {
     setAlarmCheck(true);
   };
   return (
-    <div>
+    <div className="pageSetting">
       <AlarmHeader />
       {Array.isArray(alarmData) ? (
         alarmData.map((alarm) => (

@@ -33,6 +33,8 @@ export default function MyPage() {
     }
   };
 
+  // ddddd
+
   fetchData();
   }, []);
 
@@ -40,37 +42,21 @@ export default function MyPage() {
     <>
       <AlarmHeader />
       {/* Introduce 상단 닉네임, 키워드, 지역 등 */}
+      <div className="pageSetting">
       <Introduce memberInfo={member}/>
       {/* 마이페이지 데이터 넘기기 ex)<Introduce myData={myData}>*/}
       <hr
-        style={{
-          width: "337px",
-          height: "1px",
-          marginLeft: "580px",
-        }}
       />
       <Link to="/MyComu" style={{ textDecoration: "none" }}>
         <div
-          className="clickdiv alink"
-          style={{
-            marginLeft: "590px",
-          }}
         >
           <p>내가 쓴 게시물</p>
         </div>
       </Link>
       <hr
-        style={{
-          width: "337px",
-          height: "1px",
-          marginLeft: "580px",
-        }}
       />
       <div
         className="clickdiv"
-        style={{
-          marginLeft: "580px",
-        }}
       >
         <div className="underline">재능 소개</div>
         <Link to="/MyReview">
@@ -82,16 +68,11 @@ export default function MyPage() {
         <TalentIntroduce memberInfo={member}/>
         {/* Intorduce랑 동일하게 myData={myData} 넣기*/}
       </div>
-      <hr
-        style={{
-          width: "337px",
-          height: "1px",
-          marginLeft: "580px",
-        }}
-      />
+      <hr/>
       {/* 포폴 */}
       <DetailIntroduce memberInfo={member}/>
       {/* Intorduce랑 동일하게 myData={myData} 넣기*/}
+      </div>
       <button
         className="button"
         style={{

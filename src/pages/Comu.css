@@ -97,7 +97,10 @@
   height: 50px;
 }
 .comuarray {
-  margin-top: 130px;
+
+  margin-top: 320px;
+  margin-left: 560px;
+  width:375px;
 }
 .flex {
   display: flex;

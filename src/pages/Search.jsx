@@ -39,25 +39,16 @@ export default function Search() {
   };
 
   return (
-    <div
-      className="container"
-      style={{
-        width: "375px",
-        height: "1041px",
-        marginLeft: "560px",
-      }}
-    >
+    <div>
       <SearchHeader />
       <div
         className="input"
-        style={{ height: 138, width: 375, paddingTop: 30 }}
+        style={{ height: 138, width: 375, marginTop:20, marginLeft:580 }}
       >
         {/* 검색창 */}
         <div
           className="inputdiv"
-          style={{
-            marginLeft: "-525px",
-          }}
+          
         >
           {/* 검색 아이콘 */}
           <svg className="icon" aria-hidden="true" viewBox="0 0 24 24">
@@ -72,19 +63,17 @@ export default function Search() {
             className="inputsearch"
           />
         </div>
-        <hr style={{ marginTop: 27, marginLeft: -540 }} />
+        <hr style={{ marginTop: 27}} />
         <div
           className="placecenter flex"
-          style={{
-            marginLeft: "-540px",
-          }}
+          
         >
           {/* select대신 최신순, 리뷰 많은 순.... */}
           <div className="selectbox" onClick={openModal2}>
             <p>{sorting}</p>
             <img
               style={{ width: 10, height: 10, marginTop: 14, marginLeft: 10 }}
-              src="./underarrow.png"
+              src={`${process.env.PUBLIC_URL}/images/underarrow.svg`}
               alt="아래 화살표"
             />
           </div>
@@ -96,7 +85,7 @@ export default function Search() {
               content: {
                 width: "375px", // 너비
                 height: "333px", // 높이
-                margin: "auto", // 화면 중앙에 위치
+                marginLeft: "350px", // 화면 중앙에 위치
                 borderRadius: "10px", // 모서리 둥글게
                 padding: "20px", // 내부 여백
               },
@@ -119,16 +108,17 @@ export default function Search() {
       </div>
 
       <hr style={{ borderColor: "white", margin: 50 }} />
-      <div className="media" style={{ marginTop: 80 }}>
+      <div className="media" style={{ marginTop:250 ,marginLeft:580, width:375}}>
         {/* 개별 프로필 출력 */}
-
+        <div>dadfadfadfa</div>
         <div>
           {/* {datas.slice(offset, offset + limit).map((datas) => (
                             <PersonalProfile className="item" key={datas.id} {...datas}/>
                         ))} 연동한 데이터 datas 대신 입력*/}
         </div>
+        <NavBar  />
       </div>
-      <NavBar />
+      
       <Footer />
     </div>
   );

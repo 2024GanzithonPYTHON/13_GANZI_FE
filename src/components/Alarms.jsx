@@ -41,18 +41,12 @@ export default function Alarms({
         style={{
           backgroundColor: checked ? "#ffffff" : "#D9D9D9",
           marginLeft: "590px",
-        }}
-      >
+        }} >
         <p style={{ fontSize: 13, fontWeight: "bold" }}>{alarmMessage}</p>
         <p style={{ fontSize: 13 }}>"content"</p>
       </div>
       </Link> 
       <hr
-        style={{
-          width: "337px",
-          height: "1px",
-          marginLeft: "580px",
-        }}
       />
     </div>
   );
