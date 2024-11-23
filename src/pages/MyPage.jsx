@@ -4,8 +4,9 @@ import TalentIntroduce from "../components/TalentIntroduce"
 import MyPageFooter from "../layout/MyPageFooter";
 import AlarmHeader from "../layout/AlarmHeader";
 import axios from 'axios';
+import Header from "../layout/Header";
 
-
+//
 import './MyPage.css';
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -25,7 +26,9 @@ export default function MyPage({ myData }) {
 
         
         return(
-            <>
+        <div className='app'>
+          <Header/>
+            <div className='content'>
             <AlarmHeader/>
               {/* Introduce 상단 닉네임, 키워드, 지역 등 */}
                 <Introduce i={myData}/>
@@ -56,7 +59,8 @@ export default function MyPage({ myData }) {
                       alt="Pencil"
                   /></button>
                 <MyPageFooter/>
-            </>
+            </div>
+            </div>
             
         )
 }

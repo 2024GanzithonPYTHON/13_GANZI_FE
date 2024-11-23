@@ -4,6 +4,7 @@ import './NewComu.css';
 import { useState } from 'react';
 import ComunityHeader from '../layout/ComunityHeader';
 
+
 export default function NewComu({datas, myData}){
     const [ comuTitle, setComuTitle ] = useState("");
     const [ comuText, setComuText] = useState("");

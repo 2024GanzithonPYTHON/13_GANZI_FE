@@ -4,6 +4,7 @@ import ViewMessage from "../components/Message/ViewMessage";
 import SentInput from "../components/SentInput";
 import Modal from 'react-modal';
 import ChatingHeader from "../layout/ChatingHeader";
+import Header from "../layout/Header";
 
 
 //채팅
@@ -40,7 +41,9 @@ export default function ChatPage({datas, myData, chatInfo}){
 
 
     return(
-        <div>
+<div className='app'>
+    <Header/>
+        <div className='content'>
             <ChatingHeader chatInfo={chatInfo}/>
             {/* 메세지 출력 */}
             <div>
@@ -52,5 +55,7 @@ export default function ChatPage({datas, myData, chatInfo}){
             <SentInput value={ChatText} onChange={onChageChatText} onClick={onClickSend}/>
             
         </div>
+    </div>
+
     )
 }

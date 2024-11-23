@@ -10,6 +10,7 @@ import Introduce from "../components/Introduce";
 import ReviewsList from "../components/ReivewsList";
 import AlarmHeader from "../layout/AlarmHeader";
 import MyPage from "./MyPage";
+import { Header } from "../styles/StyledHeader";
 //마이페이지 - 리뷰
 const MyReview=({myData, reviewInfo})=>{
 
@@ -23,7 +24,9 @@ const MyReview=({myData, reviewInfo})=>{
     
     
     return(
-        <>
+    <div className='app'>
+    <Header/>
+      <div className='content'>
         <AlarmHeader/>
         {/* Introduce 상단 닉네임, 키워드, 지역 등 */}
             <Introduce i={myData}/>
@@ -52,7 +55,8 @@ const MyReview=({myData, reviewInfo})=>{
                 <ReviewsList key={reviewInfo.id}{...reviewInfo}/>
             ))}
             <MyPageFooter/>
-        </>
+        </div>
+        </div>
         
     )
 }

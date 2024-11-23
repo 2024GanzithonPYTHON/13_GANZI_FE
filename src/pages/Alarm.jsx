@@ -1,5 +1,6 @@
 import Alarms from "../components/Alarms"
 import AlarmHeader from "../layout/AlarmHeader"
+import Header from "../layout/Header"
 
 export default function Alarm(){
     const alarmData=[{
@@ -25,11 +26,16 @@ export default function Alarm(){
 
 
     return(
+        <div className='app'>
+    <Header/>
+      <div className='content'>
         <div>
             <AlarmHeader/>
             {alarmData.map((alarm) => (
                 <Alarms key={alarm.id} {...alarm}/>
             ))}
+        </div>
+        </div>
         </div>
     )
 }

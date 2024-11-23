@@ -5,6 +5,7 @@ import SentInput from "../components/SentInput";
 import Comment from "../components/Comment";
 import './ComuPage.css';
 import ComunityHeader from "../layout/ComunityHeader";
+import Header from "../layout/Header";
 
 
 // 커뮤니티 상세
@@ -32,7 +33,9 @@ export default function ComuPage({comuInfo, commentInfo}){
 
 
     return(
-        <div >
+<div className='app'>
+    <Header/>
+      <div className='content'>
             <ComunityHeader/>
             <div className="marginbox">
                 <div className="glgl">
@@ -66,6 +69,7 @@ export default function ComuPage({comuInfo, commentInfo}){
 
             <SentInput value={comment} onChange={onChangeComment} onClick={onClickCommentSend}/>
             
+        </div>
         </div>
     )
 }

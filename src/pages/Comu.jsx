@@ -8,6 +8,7 @@ import Modal from 'react-modal';
 import Comunity from '../components/Comunity';
 import ComunityFooter from '../layout/ComunityFooter';
 import ComunityHeader from '../layout/ComunityHeader';
+import Header from '../layout/Header';
 
 // 커뮤니티 메인
 export default function Comu({datas, comuInfo}){
@@ -44,7 +45,9 @@ export default function Comu({datas, comuInfo}){
     const closeModal2 = () => setIsOpen2(false);
 
     return(
-        <>
+<div className='app'>
+    <Header/>
+      <div className='content'>
         <ComunityHeader/>
         {/* 검색 */}
             <div className="input" style={{height:125, width:375, paddingTop:30}}>
@@ -95,7 +98,7 @@ export default function Comu({datas, comuInfo}){
                         />
                   </button></Link>
             <ComunityFooter/>
-            
-        </>
+        </div>
+    </div>
     )
 }

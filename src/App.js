@@ -384,9 +384,7 @@ const [ chatInfo, setChatInfo ] = useState(mockChatData);
 
   return (
     <BrowserRouter>
-    <div className='app'>
-    <Header/>
-      <bb className='content'>
+    
       <Routes>
         <Route path='/Main' element={<Main datas={Datas} />}/>
         <Route path='/Chats' element={<Chats chatInfo={chatInfo}/>}/>
@@ -404,9 +402,7 @@ const [ chatInfo, setChatInfo ] = useState(mockChatData);
         <Route path='/MyComu' element={<MyComu myData ={myData} comuInfo ={comuInfo}/>}/>
         <Route path='/Alarm' element={<Alarm/>}/>
       </Routes>
-      </bb>
-      
-      </div>
+     
     </BrowserRouter>
   );
 }

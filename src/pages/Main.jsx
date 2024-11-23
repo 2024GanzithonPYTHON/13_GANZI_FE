@@ -9,6 +9,7 @@ import ProfileSort from "../components/ProfileSort";
 import NavBar from "../components/NavBar";
 import HomeFooter from "../layout/HomeFooter";
 import HomeHeader from "../layout/HomeHeader";
+import Header from "../layout/Header";
 
 // 메인페이지
 export default function Main({datas}){
@@ -108,7 +109,12 @@ export default function Main({datas}){
 
     
     return(
-        <div className="main">
+<div className='app'>
+    <Header/>
+      <div className='content'>
+        
+    <Header/>
+        <div className="main content">
             <HomeHeader/>
             <div className="input" style={{width:375, paddingTop:30}}>
                 <div className="inputdiv">
@@ -182,6 +188,8 @@ export default function Main({datas}){
             </div>
             <HomeFooter/>
         </div>
+    </div>
+    </div>
         
     )
 }
