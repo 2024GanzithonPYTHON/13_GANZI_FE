@@ -37,8 +37,12 @@ export default function ChatingHeader({chatInfo}){
         navigate('/Main'); // Navigate to the main page (adjust the route as necessary)
     };
     return(
-        <div className="PageHeader">
-        <div className="HeaderDiv">
+        <div className="PageHeader" style={{
+            marginLeft: "580px"
+        }}>
+        <div className="HeaderDiv" style={{
+            marginLeft: "580px"
+        }}>
             <img onClick={()=>{ navigate(-1) }}
                 style={{width:30, height:30,marginLeft:40, marginRight:33}}
                 id="BackButton"

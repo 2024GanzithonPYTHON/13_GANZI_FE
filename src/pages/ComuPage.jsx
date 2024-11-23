@@ -86,7 +86,7 @@ export default function ComuPage(){
         <div className="pageSetting">
             <ComunityHeader/>
             {/* 유저 프로필 */}
-            <div className="marginbox">
+            <div className="pageSetting">
                 <div className="glgl">
                     <img style={{width:45, height:45, marginRight:10}}src = '/man.png' alt="사진"/>
                     <div className="jljl">
@@ -120,9 +120,11 @@ export default function ComuPage(){
                     <p>댓글이 없습니다.</p>
                 )}
             </div>
+            
 
             <SentInput value={newcomment} onChange={onChangeComment} onClick={onClickCommentSend}/>
             
         </div>
+        
     )
 }

@@ -82,7 +82,7 @@ const CreateAccount = () => {
       const response = await axios.post(`${domain}/member/signup`, formData);
       console.log("가입 성공:", response.data);
       localStorage.removeItem("accessToken");
-      localStorage.setItem("accessToken",  response.data.accessToken)
+      localStorage.setItem("accessToken",  response.data.data.accessToken)
       // 동의된 경우
       setImageSrcRegister("/images/RegisterAfter.svg"); // 클릭 시 이미지 변경
       setTimeout(() => {

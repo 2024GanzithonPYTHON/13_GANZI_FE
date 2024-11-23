@@ -40,7 +40,7 @@ export default function Alarms({
         className="placecenter"
         style={{
           backgroundColor: checked ? "#ffffff" : "#D9D9D9",
-          marginLeft: "590px",
+          
         }} >
         <p style={{ fontSize: 13, fontWeight: "bold" }}>{alarmMessage}</p>
         <p style={{ fontSize: 13 }}>"content"</p>

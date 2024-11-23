@@ -54,6 +54,7 @@ export default function NewComu() {
   return (
     <>
       <ComunityHeader />
+      <div className="pageSetting">
       <div className="center">
         <input
           value={comuTitle}
@@ -90,6 +91,7 @@ export default function NewComu() {
       >
         저장
       </button>
+      </div>
     </>
   );
 }

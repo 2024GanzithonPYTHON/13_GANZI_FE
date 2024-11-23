@@ -8,6 +8,7 @@ import NavBar from "../components/NavBar";
 import HomeFooter from "../layout/HomeFooter";
 import HomeHeader from "../layout/HomeHeader";
 import axios from "axios";
+import RecomendData from "../components/RecomendData"
 
 import PersonalProfile from "../components/PersonalProfile"
 
@@ -133,7 +134,14 @@ export default function Main({ datas }) {
             "닉네임"님의 관심사를 잘 알고 있는 분이에요.
           </p>
 
-          <div className="recocenter">
+         <div className="recocenter">
+            {recommendations.map((recommendation)=>(
+                        <RecomendData  key={recommendation.memberId} {...recommendations}/>
+                    ))
+                    }{/* 추천 데이터 연동 */}</div>
+        </div>
+      
+          {/* <div className="recocenter">
           {recommendations.length > 0 ? (
           recommendations.map((member) => (
             <div key={member.memberId} className="reco-item">
@@ -146,8 +154,9 @@ export default function Main({ datas }) {
         ) : (
           <p>추천된 멤버가 없습니다.</p>
         )}
-          </div>
-        </div>
+          </div> */}
+      
+        {/* </div> */}
         <hr style={{  width: "338px", height: "1px" }} />
 
         <div

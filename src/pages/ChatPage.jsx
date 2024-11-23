@@ -42,7 +42,8 @@ export default function ChatPage(){
             });
 
             console.log("Chat messages fetched:", response.data);
-            setChatInfo(response.data);
+            console.log("Chat messages fetched:", response.data.data);
+            setChatInfo(response.data.data);
         } catch (error) {
             console.error("Failed to fetch chat messages:", error);
         }
@@ -54,40 +55,9 @@ export default function ChatPage(){
     )
 
 
-    const onClickSend = async () => {
-        if (ChatText.trim() === "" || !clientRef.current || !connected) {
-            console.warn("Cannot send message: Check connection or input");
-            return;
-        }
-
-        const messagePayload = {
-            ID, // Chatroom ID
-            fromMemberId: fromId, // Sender ID (example)
-            toMemberId: oppId, // Receiver ID (example)
-            content: ChatText, // Message content
-            createdAt: new Date().toISOString(), // Timestamp
-        };
-        console.log("Sending message data:", messagePayload);
-        clientRef.current.publish({
-            destination: `/app/chatrooms/${ID}/send`,
-            body: JSON.stringify(messagePayload),
-        });
-
-        setChatText(""); // Clear input
-        // try {
-        //     await fetchMessages(); // 메시지를 보낸 후 최신 메시지 가져오기
-        // } catch (error) {
-        //     console.error("Failed to fetch messages after sending:", error);
-        // }
-    };
-
-
-
-   
-
     useEffect(() => {
-        fetchMessages(); 
-
+        fetchMessages();
+    
         const socket = new SockJS(`${domain}/chat`);
         const client = new Client({
             webSocketFactory: () => socket,
@@ -98,7 +68,7 @@ export default function ChatPage(){
             onConnect: () => {
                 console.log("WebSocket connected");
                 setConnected(true);
-
+    
                 // Subscribe to the chatroom topic
                 client.subscribe(`/topic/chatrooms/${ID}`, (message) => {
                     const receivedMessage = JSON.parse(message.body);
@@ -113,41 +83,74 @@ export default function ChatPage(){
                 setConnected(false);
             },
         });
-
+    
         clientRef.current = client; 
-        client.activate(); 
-
-
+        client.activate();
+    
         return () => {
             if (clientRef.current) {
                 clientRef.current.deactivate();
                 console.log("WebSocket deactivated");
             }
         };
-    }, [ accessToken]);
+    }, [accessToken]);
+    
+    const onClickSend = () => {
+        if (ChatText.trim() === "" || !clientRef.current || !connected) {
+            console.warn("Cannot send message: Check connection or input");
+            return;
+        }
+    
+        const messagePayload = {
+            chatRoomId: ID,
+            fromMemberId: fromId,
+            toMemberId: oppId,
+            content: ChatText,
+            createdAt: new Date().toISOString(),
+        };
+    
+        clientRef.current.publish({
+            destination: `/app/chatrooms/${ID}/send`,
+            body: JSON.stringify(messagePayload),
+        });
+        //setChatInfo((prev) => [...prev, messagePayload]);
+        setChatText(""); // Clear input
+        window.location.reload();
+    };
+    
 
-    return(
-        <div>
-            <ChatingHeader chatInfo ={chatInfo}/>
-            {/* 메세지 출력 */}
-            <div>
-           {(Array.isArray(chatInfo) ? chatInfo : []).map((chat, index) => (
-        <ViewMessage
-            key={chat.chatRoomId} // 채팅방 ID 사용
-            myData={{ id: fromId }} // 현재 사용자 ID
-            i={index} // 인덱스 전달
-            chatId={chat.chatRoomId} // 메시지 ID
-            sentid={fromId} // 발신자 ID
-            text={chat.content} // 메시지 내용
-        />
-    ))}
-                {/* 메세지 개별 출력 */}
-                {/* {fillterChat.map((chat) => (
-                    <ViewMessage myData={myData} i={i[0]} key={chat.chatId} {...chat}/>
-                ))} */}
+    return (
+        <div >
+            {/* 채팅 헤더 */}
+            <ChatingHeader chatInfo={chatInfo} />
+
+            {/* 메시지 출력 */}
+            <div className="messagesContainer pageSetting">
+                {Array.isArray(chatInfo) && chatInfo.length > 0 ? (
+                    chatInfo.map((chat, index) => (
+                        <ViewMessage
+                            key={`${chat.chatRoomId}-${index}`}
+                            myData={{ id: parseInt(fromId) }}
+                            chatId={chat.chatRoomId}
+                            sentid={chat.fromMemberId}
+                            text={chat.content}
+                            senderName={chat.fromMemberName}
+                            timestamp={chat.createdAt}
+                        />
+                    ))
+                ) : (
+                    <div className="noMessages">채팅 메시지가 없습니다.</div>
+                )}
             </div>
-            <SentInput value={ChatText} onChange={onChageChatText} onClick={onClickSend}/>
-            
+
+            {/* 입력창 */}
+            <SentInput
+                value={ChatText}
+                onChange={onChageChatText}
+                onClick={onClickSend}
+                
+                
+            />
         </div>
-    )
+    );
 }

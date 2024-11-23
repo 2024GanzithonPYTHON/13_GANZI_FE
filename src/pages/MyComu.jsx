@@ -35,9 +35,11 @@ export default function MyComu(){
         //연동한 데이터 comuInfo에 넣고 map으로 하나씩 출력
         <div> 
             <MyComuHeader/>
+            <div className="pageSetting">
             {comuInfo.map((comuInfor) => (
                <MyComunity key={comuInfor.id} {...comuInfor}/> 
             ))} 
+            </div>
         </div>
     )
 }

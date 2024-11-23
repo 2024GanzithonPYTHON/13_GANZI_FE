@@ -13,9 +13,11 @@ export default function MyPage() {
     const [talents, setTalents] = useState([]);
     const domain = "https://api.talent-trade.site";
     const [member, setMember] = useState(); //화면에 뿌려주는 멤버 관리
- 
+
+    const accessToken = localStorage.getItem("accessToken");
+
+    
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken"); 
     const fetchData = async () => {
     try {
       const response = await axios.get(`${domain}/profile/mine`, {
@@ -40,9 +42,11 @@ export default function MyPage() {
 
   return (
     <>
+
       <AlarmHeader />
+
       {/* Introduce 상단 닉네임, 키워드, 지역 등 */}
-      <div className="pageSetting">
+      <div className="pageSetting" style={{marginBottom:100}}>
       <Introduce memberInfo={member}/>
       {/* 마이페이지 데이터 넘기기 ex)<Introduce myData={myData}>*/}
       <hr
@@ -87,6 +91,7 @@ export default function MyPage() {
           alt="Pencil"
         />
       </button>
+
       <MyPageFooter />
     </>
   );

@@ -24,9 +24,7 @@ export default function DefaultIntroduce({memberInfo}) {
   return (
     <div
       className="firstIntro"
-      style={{
-        marginLeft: "620px",
-      }}
+     
     >
       <div className="profilephoto">
       {memberInfo.data.gender === "FEMALE" ? (
@@ -48,9 +46,7 @@ export default function DefaultIntroduce({memberInfo}) {
       </div>
       <div
         className="inline"
-        style={{
-          marginTop: "-20px",
-        }}
+        
       >
         <p className="name">{memberInfo.data.nickname}</p>
 
@@ -64,17 +60,13 @@ export default function DefaultIntroduce({memberInfo}) {
         <div>
           <div
             className="box"
-            style={{
-              marginTop: "-20px",
-            }}
+          
           >
            {meetingTypeText()}
           </div>
           <div
             className="box"
-            style={{
-              marginTop: "-20px",
-            }}
+        
           >
            {memberInfo.data.gender == "FEMALE" ? "여성" : "남성"}
           </div>

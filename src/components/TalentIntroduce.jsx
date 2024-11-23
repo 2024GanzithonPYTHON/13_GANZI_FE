@@ -14,13 +14,11 @@ export default function TalentIntroduce({memberInfo}) {
   if (!memberInfo || !memberInfo.data) {
     return <div>Loading...</div>; // Or display a different fallback UI
   }
-  
+
   return (
     <div
       className="TalentIntroduce"
-      style={{
-        marginLeft: "590px",
-      }}
+    
     >
       <div>
         <p className="flexintro">

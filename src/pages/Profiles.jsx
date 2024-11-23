@@ -16,6 +16,7 @@ const Profiles = () => {
     const [member, setMember] = useState(null); // Initialize member as null
     const domain = "https://api.talent-trade.site";
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         const accessToken = localStorage.getItem("accessToken"); 
@@ -61,7 +62,7 @@ const Profiles = () => {
             console.log('채팅방 생성:', response.data);
             const roomId = response.data.data.roomId;
 
-            localStorage.getItem("fromMemberId",response.data.data.fromMemberId);
+            localStorage.getItem("fromMemberId",response.data.data.fromMemberId)
             console.log("Room ID:", roomId);
           
             if (roomId && !isNaN(Number(roomId))) {
@@ -91,11 +92,12 @@ const Profiles = () => {
     return (
         <>
             <AlarmHeader />
+            <div className="pageSetting">
             {member && <Introduce memberInfo={member} />}
             <hr />
             <div className="clickdiv">
                 <div className="underline">재능 소개</div>
-                <Link to={`/ReviewWrite/${ID}`} key={ID} className="alink">
+                <Link to={`/ReviewWrite/${ID}`} key={ID}>
                 <div className="text underline">후기</div>
                 </Link>
             </div>
@@ -114,7 +116,7 @@ const Profiles = () => {
                     onClick={handleCreateChatRoom}
                 />
             </button>
-
+            </div>
             <Footer />
         </>
     );

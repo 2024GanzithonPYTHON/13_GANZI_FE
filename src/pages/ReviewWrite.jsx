@@ -3,11 +3,16 @@ import { useParams } from "react-router-dom";
 import { useState, useRef } from "react";
 import './ReviewWrite.css'
 import ReviewHeader from "../layout/ReviewHeader";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function ReviewWrite(){
+    let navigate = useNavigate()
     const { ID } = useParams();
 
     const textareaRef=useRef();
+    const domain = "https://api.talent-trade.site"; // API 도메인
+    const accessToken = localStorage.getItem("accessToken");
 
     
 
@@ -17,16 +22,38 @@ export default function ReviewWrite(){
         setReviewText(e.target.value);
     }
     
-    const onClickReviewStoring = () =>{
+    const onClickReviewStoring = async  () =>{
         if(reviewText===""){
             textareaRef.current.focus();
             return;
         }
+        try {
+            const response = await axios.post(
+                `${domain}/review/write/${ID}`,
+                {
+                    content: reviewText,
+                    rating: selectedRating,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                }
+            );
+            console.log("리뷰작성 성공:", response.data);
+            alert("후기가 작성되었습니다.");
+            navigate(-1); // 이전 페이지로 이동
+        } catch (error) {
+            console.error("Failed to submit review:", error);
+            alert("성사된 회원이 아닙니다.");
+        }
+
+
         console.log(reviewText)
         console.log(selectedRating)
     }
     
-
+ 
     //   이건 별점 매기는거
     const [selectedRating, setSelectedRating] = useState(null);
       
@@ -39,6 +66,7 @@ export default function ReviewWrite(){
         <>
         <ReviewHeader onClickReviewStoring={onClickReviewStoring}/>
         {/* DefaultIntroduce 상단 닉네임, 지역, 키워드... 등등 */}
+        <div className="pageSetting">
             <DefaultIntroduce/>
             {/* <DefaultIntroduce i={i[0]}/> 프로필 조회 연동한 정보 넣기 */}
             <hr />
@@ -57,6 +85,7 @@ export default function ReviewWrite(){
             <div className="textarea">
                 <textarea onChange={onChangeReviewText}  ref={textareaRef} className="customtextarea" placeholder={`"닉네임"님에 대해 남기고 싶은 후기를 작성해주세요.`}></textarea>
                 {/* ${i[0].user}를 "닉네임" 자리에 넣으면 됩니다 프로필 조회로 받아들인 정보 연동해서 닉네임*/}
+            </div>
             </div>
         </>
     )

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function SentInput({value, onChange, onClick}){
   
     return(
-        <div className="inputbox">
+        <div className="inputbox" style={{marginLeft:580, backgroundColor:"white", paddingTop:20}} >
             <div className="inputboxbox">
                 <input
                     type="text"
