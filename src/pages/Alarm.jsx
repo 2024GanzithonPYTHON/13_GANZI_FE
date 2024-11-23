@@ -32,7 +32,7 @@ export default function Alarm() {
     setAlarmCheck(true);
   };
   return (
-    <div>
+    <div className="pageSetting">
       <AlarmHeader />
       {alarmData.map((alarm) => (
         <Alarms

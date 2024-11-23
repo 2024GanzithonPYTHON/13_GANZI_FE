@@ -14,37 +14,24 @@ const MyReview = () => {
     <>
       <AlarmHeader />
       {/* Introduce 상단 닉네임, 키워드, 지역 등 */}
+      <div className="pageSetting">
       <Introduce />
       {/* 마이페이지 데이터 넘기기 ex)<Introduce myData={myData}>*/}
       <hr
-        style={{
-          width: "337px",
-          height: "1px",
-          marginLeft: "580px",
-        }}
+        
       />
       <Link to="/MyComu" style={{ textDecoration: "none" }}>
         <div
-          className="clickdiv alink"
-          style={{
-            marginLeft: "600px",
-          }}
+         
         >
           <p style={{ color: "black" }}>내가 쓴 게시물</p>
         </div>
       </Link>
       <hr
-        style={{
-          width: "337px",
-          height: "1px",
-          marginLeft: "580px",
-        }}
+        
       />
       <div
-        className="clickdiv"
-        style={{
-          marginLeft: "580px",
-        }}
+        
       >
         <Link to="/MyPage">
           <div className="text underline"> 재능 소개 </div>
@@ -76,17 +63,14 @@ const MyReview = () => {
         </div>
       </div>
       <hr
-        style={{
-          width: "337px",
-          height: "1px",
-          marginLeft: "580px",
-        }}
       />
       {/* 해당하는 리뷰만 출력 */}
       {/* {reviewInfos.map((reviewInfo) => (
                 <ReviewsList key={reviewInfo.id}{...reviewInfo}/>
             ))} 연동 받은 데이터 reviewInfos 자리에*/}
+            </div>
       <MyPageFooter />
+     
     </>
   );
 };

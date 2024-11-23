@@ -8,6 +8,7 @@ import NavBar from "../components/NavBar";
 import HomeFooter from "../layout/HomeFooter";
 import HomeHeader from "../layout/HomeHeader";
 import axios from "axios";
+
 import PersonalProfile from "../components/PersonalProfile"
 
 // 메인페이지
@@ -84,6 +85,8 @@ export default function Main({ datas }) {
 
 
   return (
+    <div className="app">
+    <div className="content">
     <div
       className="main"
       style={{
@@ -114,13 +117,10 @@ export default function Main({ datas }) {
         <hr style={{ marginTop: 20, marginLeft: 26 }} />
       </div>
 
-      <div className="profilesarray">
+      <div className="profilesarray" style={{marginLeft:587, width: "320px",}}>
         <div
           className="placecenter"
-          style={{
-            width: "320px",
-            marginLeft: "590px",
-          }}
+          
         >
           <h2 style={{ fontSize: 24, fontWeight: 700 }}>실시간 추천</h2>
           <p style={{ fontSize: 15, fontWeight: 700 }}>
@@ -129,19 +129,16 @@ export default function Main({ datas }) {
 
           <div className="recocenter">{/* 추천 데이터 연동 */}</div>
         </div>
-        <hr style={{ marginLeft: "584px", width: "338px", height: "1px" }} />
+        <hr style={{  width: "338px", height: "1px" }} />
 
         <div
           className="placecenter flex"
-          style={{
-            marginLeft: "630px",
-          }}
         >
           <div className="selectbox" onClick={openModal2}>
             <p>{sorting}</p>
             <img
               style={{ width: 10, height: 10, marginTop: 14, marginLeft: 10 }}
-              src="./underarrow.png"
+              src={`${process.env.PUBLIC_URL}/images/underarrow.svg`}
               alt="아래 화살표"
             />
           </div>
@@ -153,7 +150,7 @@ export default function Main({ datas }) {
               content: {
                 width: "375px", // 너비
                 height: "333px", // 높이
-                margin: "auto", // 화면 중앙에 위치
+                marginLeft: "350px", // 화면 중앙에 위치
                 borderRadius: "10px", // 모서리 둥글게
                 padding: "20px", // 내부 여백
               },
@@ -177,7 +174,7 @@ export default function Main({ datas }) {
             <p>{keyword}</p>
             <img
               style={{ width: 10, height: 10, marginTop: 14, marginLeft: 10 }}
-              src="./underarrow.png"
+              src={`${process.env.PUBLIC_URL}/images/underarrow.svg`}
               alt="아래 화살표"
             />
           </div>
@@ -189,7 +186,7 @@ export default function Main({ datas }) {
               content: {
                 width: "375px", // 너비
                 height: "333px", // 높이
-                margin: "auto", // 화면 중앙에 위치
+                marginLeft: "350px", // 화면 중앙에 위치
                 borderRadius: "10px", // 모서리 둥글게
                 padding: "20px", // 내부 여백
               },
@@ -211,7 +208,9 @@ export default function Main({ datas }) {
         </div>
 
         <hr style={{ borderColor: "white" }} />
-        <div className="media">
+        <div className="media" >
+          <p>dafja</p>
+          <p>ddfjkd</p>
         {members.slice(offset, offset + limit).map((datas) => (
                         <PersonalProfile className="item" key={datas.id} {...datas}/>
                     ))}
@@ -243,9 +242,11 @@ export default function Main({ datas }) {
   )} */}
 </div>
 
-        <NavBar />
+        <NavBar style={{marginLeft:350 }}/>
       </div>
       <HomeFooter />
+    </div>
+    </div>
     </div>
   );
 }

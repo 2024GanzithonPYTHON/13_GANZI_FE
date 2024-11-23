@@ -32,14 +32,14 @@ export default function DefaultIntroduce({memberInfo}) {
       {memberInfo.data.gender === "FEMALE" ? (
           <img
            className="introduceimg"
-            src="/images/PersonWoman.svg"
+            src={`${process.env.PUBLIC_URL}/images/PersonWoman.svg`}
             alt="Female Avatar"
             style={{ zIndex: 1 }}
           />
         ) : (
           <img
            className="introduceimg"
-            src="/images/PersonMan.svg"
+            src={`${process.env.PUBLIC_URL}/images/PersonMan.svg`}
             alt="Male Avatar"
             style={{ zIndex: 1 }}
           />

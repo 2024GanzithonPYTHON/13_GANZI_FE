@@ -83,7 +83,7 @@ export default function ComuPage(){
       }, []);
 
     return(
-        <div >
+        <div className="pageSetting">
             <ComunityHeader/>
             {/* 유저 프로필 */}
             <div className="marginbox">

@@ -81,10 +81,12 @@ const CreateAccount = () => {
     try {
       const response = await axios.post(`${domain}/member/signup`, formData);
       console.log("가입 성공:", response.data);
+      localStorage.removeItem("accessToken");
+      localStorage.setItem("accessToken",  response.data.accessToken)
       // 동의된 경우
       setImageSrcRegister("/images/RegisterAfter.svg"); // 클릭 시 이미지 변경
       setTimeout(() => {
-        navigate("/welcome"); // 0.3초 후 메인 페이지로 이동
+        navigate("/Welcome"); // 0.3초 후 메인 페이지로 이동
       }, 300); // 페이지 이동 지연 시간
     } catch (error) {
       console.error("가입 실패:", error.response.data);

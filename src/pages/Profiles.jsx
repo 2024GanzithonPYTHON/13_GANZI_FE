@@ -9,6 +9,7 @@ import TalentIntroduce from "../components/TalentIntroduce";
 import Introduce from "../components/Introduce";
 import AlarmHeader from "../layout/AlarmHeader";
 import Footer from "../layout/Footer";
+import { Link } from "react-router-dom";
 
 const Profiles = () => {
     const { ID } = useParams();
@@ -92,7 +93,9 @@ const Profiles = () => {
             <hr />
             <div className="clickdiv">
                 <div className="underline">재능 소개</div>
+                <Link to={`/ReviewWrite/${ID}`} key={ID} className="alink">
                 <div className="text underline">후기</div>
+                </Link>
             </div>
 
             {member && <TalentIntroduce memberInfo={member} />}

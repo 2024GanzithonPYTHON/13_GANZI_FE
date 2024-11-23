@@ -29,9 +29,9 @@ import Alarm from "./pages/Alarm";
 function App() {
   return (
     <BrowserRouter>
-      <div className="app">
+    
         <Header />
-        <div className="content">
+
           <Routes>
             <Route path="/Splash" element={<Splash />} />
             <Route path="/Login" element={<Login />} />
@@ -53,8 +53,7 @@ function App() {
             <Route path="/MyComu" element={<MyComu />} />
             <Route path="/Alarm" element={<Alarm />} />
           </Routes>
-        </div>
-      </div>
+
     </BrowserRouter>
   );
 }

@@ -40,8 +40,8 @@ const Login = () => {
     try {
       const response = await axios.post(`${domain}/member/signin`, formData);
       const accessToken =  response.data.data.accessToken;
-      localStorage.removeItem("accessToken");
-      localStorage.setItem("accessToken", accessToken);
+      // localStorage.removeItem("accessToken");
+      // localStorage.setItem("accessToken", accessToken);
       setImageSrc("/images/LoginAfter.svg"); // 클릭 시 이미지 변경
       setTimeout(() => {
         navigate("/main"); // 0.3초 후 메인 페이지로 이동
